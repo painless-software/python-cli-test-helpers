@@ -36,8 +36,9 @@ Installation
 
     pip install cli-test-helpers
 
-Preferrably, though, you add `cli-test-helpers` as a dependency to your Tox
-environment (see `example <examples/tox.ini#L7-L9>`__).
+Preferably, though, you add `cli-test-helpers` as a dependency to your Tox
+environment (see `example
+<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tox.ini#L7-L9>`__).
 
 Usage
 =====
@@ -47,7 +48,8 @@ good idea. Your CLI program is called ``foobar``. You have prepared a
 ``setup.py`` with a CLI entrypoint. For the tests you have prepared a
 ``tests/`` folder (outside of ``foobar/``, because you don't want your tests
 to be packaged up with your application code). Then your directory layout
-looks somewhat like `our example <examples/>`__.
+looks somewhat like `our example
+<https://github.com/painless-software/python-cli-test-helpers/tree/master/examples>`__.
 
 Functional tests
 ----------------
@@ -59,10 +61,11 @@ Start with a simple set of functional tests:
 - Is command XYZ available? etc. Cover your entire CLI usage here!
 
 This is almost a stupid exercise: Run the command as a shell command
-and inspect the status code of the exiting process (see
-`example <examples/tests/test_cli.py>`__). The trick is that you run a
-non-destructive command, e.g. by using the usual ``--help`` option of every
-command. This should cover your entire CLI user interface definition.
+and inspect the status code of the exiting process (see `example
+<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tests/test_cli.py>`__).
+The trick is that you run a non-destructive command, e.g. by using the usual
+``--help`` option of every command. This should cover your entire CLI user
+interface definition.
 
 Unit tests
 ----------
@@ -93,7 +96,8 @@ Then you're ready to take advantage of our helpers.
                 foobar.command.baz()
                 pytest.fail("CLI doesn't abort with missing SECRET")
 
-See `example <examples/tests/test_command.py>`__.
+See `example
+<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tests/test_command.py>`__.
 
 TDD
 ---
