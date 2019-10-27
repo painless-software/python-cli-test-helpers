@@ -5,6 +5,7 @@ import click
 
 from . import command
 
+
 @click.group()
 @click.version_option()
 def main():
