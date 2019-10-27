@@ -9,4 +9,4 @@ def baz():
     try:
         os.environ['SECRET']
     except KeyError:
-        SystemExit('Environment value SECRET not set.')
+        raise SystemExit('Environment value SECRET not set.')

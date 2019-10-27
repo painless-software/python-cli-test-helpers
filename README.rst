@@ -76,7 +76,7 @@ Then you're ready to take advantage of our helpers.
     def test_cli_command(mock_command):
         """Is the correct code called when invoked via the CLI?"""
         with ArgvContext('foobar', 'baz'):
-            foobar.cli.main()
+            foobar.command.baz()
 
         assert mock_command.call_count == 1
 
@@ -88,9 +88,9 @@ Then you're ready to take advantage of our helpers.
         """Must fail without a ``SECRET`` environment variable specified"""
         message = "Environment value SECRET not set."
 
-        with EnvironContext(SECRET='mybaz'):
+        with EnvironContext(SECRET=None):
             with pytest.raises(SystemExit, match=message):
-                foobar.cli.main()
+                foobar.command.baz()
                 pytest.fail("CLI doesn't abort with missing SECRET")
 
 See `example <examples/tests/test_command.py>`__.
@@ -98,7 +98,7 @@ See `example <examples/tests/test_command.py>`__.
 TDD
 ---
 
-Remember to stick to the test-driven matra:
+Remember to stick to the test-driven mantra:
 
 #. Write one line of test code. Make the test fail.
 #. Write one line of application code. Make the test pass.
