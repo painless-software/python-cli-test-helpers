@@ -24,7 +24,7 @@ setup(
     long_description=read_file('README.rst'),
     long_description_content_type='text/x-rst',
     url=package.__url__,
-    packages=find_packages(exclude=['test*']),
+    packages=find_packages(exclude=['test*', 'examples']),
     include_package_data=True,
     keywords=['python', 'cli', 'testing', 'helpers'],
     classifiers=[
