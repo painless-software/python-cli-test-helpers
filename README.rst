@@ -5,8 +5,8 @@ cli-test-helpers |latest-version|
 
 Useful helpers for writing tests for your Python CLI program.
 
-Writing tests for a command line interface (CLI) tool may not seem strictly
-straight-forward when you think in terms of unit tests. Especially, when you
+Writing tests for a command line interface (CLI) tool `may not seem strictly
+straight-forward`_ when you think in terms of unit tests. Especially, when you
 use the `argparse`_ module or the `click`_ package, control of the application
 entry point is a bit taken away from you.
 
@@ -26,6 +26,7 @@ common cases, such as mocking CLI arguments and environment variable values.
 .. |license| image:: https://img.shields.io/pypi/l/cli-test-helpers.svg
    :alt: Software license
    :target: https://github.com/painless-software/python-cli-test-helpers/blob/master/LICENSE
+.. _may not seem strictly straight-forward: https://stackoverflow.com/questions/13493288/
 .. _argparse: https://docs.python.org/3/library/argparse.html
 .. _click: https://click.palletsprojects.com/
 
