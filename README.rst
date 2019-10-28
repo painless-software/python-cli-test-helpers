@@ -76,12 +76,13 @@ Then you're ready to take advantage of our helpers.
 
 .. code:: python
 
+    @patch('foobar.command.baz')
     def test_cli_command(mock_command):
         """Is the correct code called when invoked via the CLI?"""
-        with ArgvContext('foobar', 'baz'):
-            foobar.command.baz()
+        with ArgvContext('foobar', 'baz'), pytest.raises(SystemExit):
+            foobar.cli.main()
 
-        assert mock_command.call_count == 1
+        assert mock_command.called
 
 ``EnvironContext`` allows you to mimic the presence of environment values:
 
@@ -89,10 +90,10 @@ Then you're ready to take advantage of our helpers.
 
     def test_fail_without_secret():
         """Must fail without a ``SECRET`` environment variable specified"""
-        message = "Environment value SECRET not set."
+        message_regex = "Environment value SECRET not set."
 
         with EnvironContext(SECRET=None):
-            with pytest.raises(SystemExit, match=message):
+            with pytest.raises(SystemExit, match=message_regex):
                 foobar.command.baz()
                 pytest.fail("CLI doesn't abort with missing SECRET")
 
