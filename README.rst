@@ -37,7 +37,7 @@ Installation
 
     pip install cli-test-helpers
 
-Preferably, though, you add `cli-test-helpers` as a dependency to your Tox
+Preferably, though, you add ``cli-test-helpers`` as a dependency to your Tox
 environment (see `example
 <https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tox.ini#L7-L9>`__).
 
