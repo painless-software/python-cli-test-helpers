@@ -101,6 +101,14 @@ Then you're ready to take advantage of our helpers.
 See `example
 <https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tests/test_command.py>`__.
 
+Other Resources
+---------------
+
+- `Testing Click Applications`_
+
+
+.. _Testing Click Applications: https://click.palletsprojects.com/en/7.x/testing/
+
 TDD
 ---
 
