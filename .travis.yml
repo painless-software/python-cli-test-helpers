@@ -1,6 +1,3 @@
-dist: xenial
-sudo: required
-
 language: python
 python:
 - 2.7
@@ -17,6 +14,8 @@ os:
 - osx
 - windows
 
+dist: xenial
+
 install:
 - pip install tox-travis
 script:
@@ -27,12 +26,10 @@ stages:
 - test
 - deploy
 
-matrix:
+jobs:
   allow_failures:
   - os: osx
   - os: windows
-
-jobs:
   include:
   - { stage: lint, python: 3.7, env: TOXENV=flake8 }
   - { stage: lint, python: 3.7, env: TOXENV=pylint }
@@ -41,13 +38,15 @@ jobs:
   - { stage: test, python: 3.7, env: TOXENV=examples }
 
   - stage: deploy
-    install: skip
-    script: skip
+    if: tag is present
     deploy:
       provider: pypi
       distributions: sdist bdist_wheel
-      user: bittner
+      username: bittner
       password:
         secure: uCyRC5Yl6zoi0NB1uE/p/QXSH65KF6oX4ETMTQF3RjB6YKLbRGyDt7RF3tYPR2quAskrHdwiMaEQDNbcSoX79EkCUT37zz7k9eQ9HFB+TTbq/N27DYcIDmDdI6L6RpeNPQ+AWw1Tptf9ZiNitin41PdqTrI7xTFS704wsBo8YYfO9JwA6A2A1wNuohI1dq+fFtvqaHPR+HYW8yamDk2wW2uh/xcXwPTXYY5UBP6I0+TPo/cxmltMZjQqChIkHTmIhmoN2UhKj4NOsfoMsHzoVtpjIkR7IdtwbV5kJit+8klY3QamhmKsmpR9tUgaDkaIRXWwl1ThI98iClyJ55+he+ul+FO0LajZFpdCcKm/QFawTDwVKojbUnCnz1Kx/wN2SjuQUory8rZdRpRXo6bJuyYZ3ePM9p0/CzMPNzkJ5bLTPFJ26/i7q79E4CLx3t968sdvD3X/AcaxY+SfRLYHwM5433dNfxjNA/UrRNxtLIhBcQpvyjllbvgin4v/Nn06U9hwj1mliE0QkqnAFqa5lN/g/+ale/m9r2SSWyacSu4shchQV2gmvbnfC+SmbNskwJUaRoUcoicM5PiR+o7syW4ooMoZhJtp5+b60UEZS9BPrq6irVDYL1v81y+x0dbjoqbOe2j+JAmz68UiHDJYCdscWJiFgPP01wluHPl5GEQ=
       on:
         tags: true
+    install: skip
+    script: skip
+    python: 3.7
