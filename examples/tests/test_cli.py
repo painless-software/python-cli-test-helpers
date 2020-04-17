@@ -11,7 +11,7 @@ def test_runas_module():
     """
     Can this package be run as a Python module?
     """
-    exit_status = os.system('python -m foobar')
+    exit_status = os.system('python -m foobar --help')
     assert exit_status == 0
 
 
