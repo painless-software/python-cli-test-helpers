@@ -33,6 +33,7 @@ class EnvironContext:
         self._kwargs = kwargs
 
     def __enter__(self):
+        # pylint: disable=consider-using-dict-items
         for key in self._kwargs:
             if self._kwargs[key] is None:
                 if key in os.environ:

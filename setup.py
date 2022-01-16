@@ -10,6 +10,7 @@ import cli_test_helpers as package
 
 def read_file(filename):
     """Get the contents of a file"""
+    # pylint: disable=unspecified-encoding
     with open(join(abspath(dirname(__file__)), filename)) as file:
         return file.read()
 
@@ -39,6 +40,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Software Development :: Testing',
