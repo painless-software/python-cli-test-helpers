@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Python CLI Test Helpers'
-copyright = '2022, Peter Bittner'
+copyright = '2019-2022, Peter Bittner'
 author = 'Peter Bittner'
 
 
@@ -28,6 +28,7 @@ author = 'Peter Bittner'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.extlinks',
     'sphinx.ext.viewcode',
 ]
 
@@ -39,6 +40,10 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+extlinks = {
+    'github': ('https://github.com/%s', ''),
+    'pypi': ('https://pypi.org/project/%s', ''),
+}
 
 # -- Options for HTML output -------------------------------------------------
 
