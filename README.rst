@@ -17,7 +17,7 @@ common cases, such as mocking CLI arguments and environment variable values.
 .. |latest-version| image:: https://img.shields.io/pypi/v/cli-test-helpers.svg
    :alt: Latest version on PyPI
    :target: https://pypi.org/project/cli-test-helpers
-.. |build-status| image:: https://img.shields.io/travis/painless-software/python-cli-test-helpers/master.svg
+.. |build-status| image:: https://img.shields.io/travis/painless-software/python-cli-test-helpers/main.svg
    :alt: Build status
    :target: https://travis-ci.org/painless-software/python-cli-test-helpers
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/cli-test-helpers.svg
@@ -25,7 +25,7 @@ common cases, such as mocking CLI arguments and environment variable values.
    :target: https://pypi.org/project/cli-test-helpers
 .. |license| image:: https://img.shields.io/pypi/l/cli-test-helpers.svg
    :alt: Software license
-   :target: https://github.com/painless-software/python-cli-test-helpers/blob/master/LICENSE
+   :target: https://github.com/painless-software/python-cli-test-helpers/blob/main/LICENSE
 .. _may not seem strictly straight-forward: https://stackoverflow.com/questions/13493288/
 .. _argparse: https://docs.python.org/3/library/argparse.html
 .. _click: https://click.palletsprojects.com/
@@ -38,8 +38,11 @@ Installation
     pip install cli-test-helpers
 
 Preferably, though, you add ``cli-test-helpers`` as a dependency to your Tox
-environment (see `example
-<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tox.ini#L7-L9>`__).
+environment (see |example (tox.ini)|_).
+
+.. |example (tox.ini)| replace:: example
+.. _example (tox.ini):
+    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/tox.ini#L7-L9
 
 Usage
 =====
@@ -49,8 +52,11 @@ good idea. Your CLI program is called ``foobar``. You have prepared a
 ``setup.py`` with a CLI entrypoint. For the tests you have prepared a
 ``tests/`` folder (outside of ``foobar/``, because you don't want your tests
 to be packaged up with your application code). Then your directory layout
-looks somewhat like `our example
-<https://github.com/painless-software/python-cli-test-helpers/tree/master/examples>`__.
+looks somewhat like `our example`_.
+
+.. _pytest: https://pytest.org/
+.. _our example:
+    https://github.com/painless-software/python-cli-test-helpers/tree/main/examples
 
 Functional tests
 ----------------
@@ -62,11 +68,14 @@ Start with a simple set of functional tests:
 - Is command XYZ available? etc. Cover your entire CLI usage here!
 
 This is almost a stupid exercise: Run the command as a shell command
-and inspect the status code of the exiting process (see `example
-<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tests/test_cli.py>`__).
+and inspect the status code of the exiting process (see |example (test-cli)|_).
 The trick is that you run a non-destructive command, e.g. by using the usual
 ``--help`` option of every command. This should cover your entire CLI user
 interface definition.
+
+.. |example (test-cli)| replace:: example
+.. _example (test-cli):
+    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/tests/test_cli.py
 
 Unit tests
 ----------
@@ -98,8 +107,11 @@ Then you're ready to take advantage of our helpers.
                 foobar.command.baz()
                 pytest.fail("CLI doesn't abort with missing SECRET")
 
-See `example
-<https://github.com/painless-software/python-cli-test-helpers/blob/master/examples/tests/test_command.py>`__.
+See |example (test-command)|_.
+
+.. |example (test-command)| replace:: example
+.. _example (test-command):
+    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/tests/test_command.py
 
 Other Resources
 ---------------
@@ -117,6 +129,3 @@ Remember to stick to the test-driven mantra:
 #. Write one line of test code. Make the test fail.
 #. Write one line of application code. Make the test pass.
 #. Goto 1.
-
-
-.. _pytest: https://pytest.org/
