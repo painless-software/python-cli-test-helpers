@@ -25,6 +25,11 @@ setup(
     long_description=read_file('README.rst'),
     long_description_content_type='text/x-rst',
     url=package.__url__,
+    project_urls={
+        'Documentation': 'https://python-cli-test-helpers.readthedocs.io/',
+        'Examples': 'https://github.com/painless-software/'
+                    'python-cli-test-helpers/tree/main/examples',
+    },
     packages=find_packages(exclude=['test*', 'examples']),
     include_package_data=True,
     keywords=['python', 'cli', 'testing', 'helpers'],
