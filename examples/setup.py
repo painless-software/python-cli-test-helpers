@@ -2,7 +2,7 @@
 """
 Packaging for example CLI tool
 """
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 import foobar as package
 
@@ -32,6 +32,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     python_requires='>=3.6',
     packages=find_packages(exclude=['tests']),
