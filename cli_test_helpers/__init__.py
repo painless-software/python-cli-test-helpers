@@ -10,9 +10,8 @@ __version__ = '2.0.0-dev0'
 __all__ = [
     'ArgvContext',
     'EnvironContext',
+    'shell',
 ]
 
-from .decorators import (
-    ArgvContext,
-    EnvironContext,
-)
+from .commands import shell
+from .decorators import ArgvContext, EnvironContext
