@@ -9,7 +9,7 @@ from cli_test_helpers import ArgvContext, EnvironContext
 
 def test_argv_context():
     """
-    Test if ArgvContext sets the right argvs and resets to the old correctly
+    Does ArgvContext set new argvs and reset old ones correctly?
     """
     old = sys.argv
     new = ["Alice", "Bob", "Chris", "Daisy"]
@@ -25,8 +25,7 @@ def test_argv_context():
 
 def test_environ_context():
     """
-    Test if EnvironContext sets the right environ values and resets to
-    the old values correctly
+    Does EnvironContext set new environ values and reset old ones correctly?
     """
     old = os.environ
     new = {'PATH': None, 'FOO': 'my foo value'}
