@@ -2,7 +2,14 @@
 Useful commands for writing tests for your CLI tool
 """
 from argparse import Namespace
-from subprocess import run
+from sys import version_info
+
+if version_info < (3, 5):
+    from subprocess import PIPE, CalledProcessError, check_output
+elif version_info < (3, 7):
+    from subprocess import PIPE, run
+else:
+    from subprocess import run
 
 __all__ = []
 
@@ -13,7 +20,18 @@ def shell(command, **kwargs):
     convenient namespace object.
     """
     # pylint: disable=subprocess-run-check
-    completed = run(command, shell=True, capture_output=True, **kwargs)
+    if version_info < (3, 5):
+        completed = Namespace(returncode=None, stdout=b"", stderr=b"")
+        try:
+            completed.stdout = check_output(command, shell=True, stderr=PIPE, **kwargs)
+            completed.returncode = 0
+        except CalledProcessError as ex:
+            completed.stdout = ex.output
+            completed.returncode = ex.returncode
+    elif version_info < (3, 7):
+        completed = run(command, shell=True, stdout=PIPE, stderr=PIPE, **kwargs)
+    else:
+        completed = run(command, shell=True, capture_output=True, **kwargs)
 
     return Namespace(
         status=completed.returncode,
