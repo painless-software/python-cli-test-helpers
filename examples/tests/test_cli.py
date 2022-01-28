@@ -2,7 +2,10 @@
 Tests for command line interface (CLI)
 """
 import pytest
+
 from cli_test_helpers import shell
+from importlib.metadata import version
+from os import linesep
 
 import foobar.cli
 
@@ -20,6 +23,17 @@ def test_entrypoint():
     Is entrypoint script installed? (setup.py)
     """
     result = shell('foobar --help')
+    assert result.status == 0
+
+
+def test_version():
+    """
+    Does --version display information as expected?
+    """
+    expected_version = version('foobar')
+    result = shell('foobar --version')
+
+    assert result.stdout == f"foobar, version {expected_version}{linesep}"
     assert result.status == 0
 
 
