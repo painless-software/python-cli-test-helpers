@@ -1,8 +1,8 @@
 """
 Tests for command line interface (CLI)
 """
-import os
 import pytest
+from cli_test_helpers import shell
 
 import foobar.cli
 
@@ -11,24 +11,24 @@ def test_runas_module():
     """
     Can this package be run as a Python module?
     """
-    exit_status = os.system('python -m foobar --help')
-    assert exit_status == 0
+    result = shell('python -m foobar --help')
+    assert result.status == 0
 
 
 def test_entrypoint():
     """
     Is entrypoint script installed? (setup.py)
     """
-    exit_status = os.system('foobar --help')
-    assert exit_status == 0
+    result = shell('foobar --help')
+    assert result.status == 0
 
 
 def test_baz_command():
     """
     Is command available?
     """
-    exit_status = os.system('foobar baz --help')
-    assert exit_status == 0
+    result = shell('foobar baz --help')
+    assert result.status == 0
 
 
 # NOTE:
