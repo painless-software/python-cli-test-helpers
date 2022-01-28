@@ -12,6 +12,7 @@ def shell(command, **kwargs):
     A better version of ``os.system()`` that captures output and returns a
     convenient namespace object.
     """
+    # pylint: disable=subprocess-run-check
     completed = run(command, shell=True, capture_output=True, **kwargs)
 
     return Namespace(
