@@ -24,7 +24,7 @@ Start with a simple set of functional tests:
 - Is command XYZ available? etc. Cover your entire CLI usage here!
 
 This is almost a stupid exercise: Run the command as a shell command
-and inspect the status code of the exiting process (see |example (test-cli)|_).
+and inspect the exit code of the exiting process (see |example (test-cli)|_).
 
 The trick is that you run a non-destructive command, e.g. by using the usual
 ``--help`` option of every command. This should cover your entire CLI user

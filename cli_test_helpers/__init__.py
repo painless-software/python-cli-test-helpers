@@ -5,7 +5,7 @@ __author__ = 'Peter Bittner'
 __email__ = 'peter@painless.software'
 __license__ = 'GPLv3'
 __url__ = 'https://github.com/painless-software/python-cli-test-helpers'
-__version__ = '2.0.0'
+__version__ = '2.1.0'
 
 __all__ = [
     'ArgvContext',

@@ -34,7 +34,7 @@ def shell(command, **kwargs):
         completed = run(command, shell=True, capture_output=True, **kwargs)
 
     return Namespace(
-        status=completed.returncode,
+        exit_code=completed.returncode,
         stdout=completed.stdout.decode(),
         stderr=completed.stderr.decode(),
     )
