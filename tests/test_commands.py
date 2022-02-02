@@ -14,15 +14,15 @@ def test_shell_output():
 
     result = shell("echo " + message)
 
-    assert result.status == 0, "Command execution reported as failure"
+    assert result.exit_code == 0, "Command execution reported as failure"
     assert result.stdout == message + linesep, "Unexpected output of shell"
 
 
 def test_shell_fails_gracefully():
     """
     An erroneous command execution throws no exception but sets the exit
-    status to nonzero.
+    code to nonzero.
     """
     result = shell("some-invalid-command-that-doesnt-exist")
 
-    assert result.status != 0, "Command execution not reported as failure"
+    assert result.exit_code != 0, "Command execution not reported as failure"

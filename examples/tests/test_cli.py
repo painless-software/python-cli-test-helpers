@@ -15,7 +15,7 @@ def test_runas_module():
     Can this package be run as a Python module?
     """
     result = shell('python -m foobar --help')
-    assert result.status == 0
+    assert result.exit_code == 0
 
 
 def test_entrypoint():
@@ -23,7 +23,7 @@ def test_entrypoint():
     Is entrypoint script installed? (setup.py)
     """
     result = shell('foobar --help')
-    assert result.status == 0
+    assert result.exit_code == 0
 
 
 def test_version():
@@ -34,7 +34,7 @@ def test_version():
     result = shell('foobar --version')
 
     assert result.stdout == f"foobar, version {expected_version}{linesep}"
-    assert result.status == 0
+    assert result.exit_code == 0
 
 
 def test_baz_command():
@@ -42,7 +42,7 @@ def test_baz_command():
     Is command available?
     """
     result = shell('foobar baz --help')
-    assert result.status == 0
+    assert result.exit_code == 0
 
 
 # NOTE:
