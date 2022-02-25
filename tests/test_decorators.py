@@ -27,17 +27,19 @@ def test_environ_context():
     """
     Does EnvironContext set new environ values and reset old ones correctly?
     """
-    old = os.environ
-    new = {'PATH': None, 'FOO': 'my foo value'}
+    old_environ = os.environ
+    old_path = os.getenv('PATH')
 
-    assert os.environ == old
-    assert os.environ.get('PATH'), "Invalid test setup"
-    assert not os.environ.get('FOO'), "Invalid test setup"
+    assert os.environ == old_environ
+    assert os.getenv('PATH') is not None, "Invalid test setup"
+    assert os.getenv('FOO') is None, "Invalid test setup"
 
-    with EnvironContext(**new):
-        assert not os.environ.get('PATH'), \
+    with EnvironContext(PATH=None, FOO='my foo value'):
+        assert os.getenv('PATH') is None, \
             "os.environ[PATH] wasn't removed by the contextmanager"
-        assert os.environ['FOO'] == new['FOO'], \
+        assert os.getenv('FOO') == 'my foo value', \
             "os.environ[FOO] wasn't set by the contextmanager"
 
-    assert os.environ == old, "os.environ wasn't correctly reset"
+    assert os.environ == old_environ, "object os.environ was not restored"
+    assert os.getenv('PATH') == old_path, "env var PATH was not restored"
+    assert os.getenv('FOO') is None, "env var FOO was not cleared"
