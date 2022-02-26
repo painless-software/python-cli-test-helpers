@@ -1,8 +1,12 @@
 """
 Useful helpers for writing tests for your CLI tool
 """
-import os
+
 import sys
+try:
+    from unittest.mock import patch
+except ImportError:  # Python 2.7
+    from mock import patch
 
 __all__ = []
 
@@ -23,23 +27,34 @@ class ArgvContext:
         sys.argv = self._old
 
 
-class EnvironContext:
+class EnvironContext(patch.dict):
     """
-    A simple context manager allowing to temporarily set environment values
+    A simple context manager allowing to temporarily set environment values.
+
+    This is syntactic sugar for `unittest.mock.patch.dict`_ as seen in the
+    Python documentation, plus allowing to clear single environment variables.
+
+    .. _unittest.mock.patch.dict:
+        https://docs.python.org/3/library/unittest.mock.html#patch-dict
     """
 
     def __init__(self, **kwargs):
-        self._old = os.environ
-        self._kwargs = kwargs
+
+        self.clear_variables = [
+            key for key, val in kwargs.items() if val is None
+        ]
+
+        for key in self.clear_variables:
+            kwargs.pop(key)
+
+        super(EnvironContext, self).__init__('os.environ', **kwargs)
 
     def __enter__(self):
-        # pylint: disable=consider-using-dict-items
-        for key in self._kwargs:
-            if self._kwargs[key] is None:
-                if key in os.environ:
-                    del os.environ[key]
-            else:
-                os.environ[key] = self._kwargs[key]
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        os.environ = self._old
+        super(EnvironContext, self).__enter__()
+
+        for key in self.clear_variables:
+            try:
+                self.in_dict.pop(key)
+            except KeyError:
+                pass

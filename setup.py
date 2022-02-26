@@ -2,10 +2,9 @@
 """
 Packaging setup for cli-test-helpers
 """
+
 from os.path import abspath, dirname, join
 from setuptools import find_packages, setup
-
-import cli_test_helpers as package
 
 
 def read_file(filename):
@@ -16,15 +15,15 @@ def read_file(filename):
 
 
 setup(
-    name=package.__name__.replace('_', '-'),
-    version=package.__version__,
-    license=package.__license__,
-    author=package.__author__,
-    author_email=package.__email__,
-    description=package.__doc__.strip(),
+    name='cli-test-helpers',
+    version='3.0.dev0',
+    license='GPLv3',
+    author='Peter Bittner',
+    author_email='peter@painless.software',
+    description='Useful helpers for writing tests for your Python CLI program.',
     long_description=read_file('README.rst'),
     long_description_content_type='text/x-rst',
-    url=package.__url__,
+    url='https://github.com/painless-software/python-cli-test-helpers',
     project_urls={
         'Documentation': 'https://python-cli-test-helpers.readthedocs.io/',
         'Examples': 'https://github.com/painless-software/'
@@ -51,5 +50,8 @@ setup(
         'Topic :: Software Development :: Testing',
         'Topic :: Software Development :: Testing :: Mocking',
         'Topic :: Software Development :: Testing :: Unit',
+    ],
+    install_requires=[
+        'mock<4; python_version<"3"',
     ],
 )
