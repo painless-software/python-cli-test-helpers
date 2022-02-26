@@ -4,7 +4,7 @@ Useful commands for writing tests for your CLI tool
 from argparse import Namespace
 from sys import version_info
 
-if version_info < (3, 5):
+if version_info < (3, 5):  # Python 2.7
     from subprocess import PIPE, CalledProcessError, check_output
 elif version_info < (3, 7):
     from subprocess import PIPE, run
@@ -20,7 +20,7 @@ def shell(command, **kwargs):
     convenient namespace object.
     """
     # pylint: disable=subprocess-run-check
-    if version_info < (3, 5):
+    if version_info < (3, 5):  # Python 2.7
         completed = Namespace(returncode=None, stdout=b"", stderr=b"")
         try:
             completed.stdout = check_output(command, shell=True, stderr=PIPE, **kwargs)
