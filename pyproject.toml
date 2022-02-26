@@ -1,0 +1,21 @@
+[tool.bandit]
+# NOTE: Exclude/ignore of files is currently broken in Bandit
+exclude = [".git",".github",".tox","tests"]
+skips = ["B404","B602"]
+
+[tool.black]
+color = true
+
+[tool.coverage.xml]
+output = "tests/coverage-report.xml"
+
+[tool.isort]
+color_output = true
+profile = "black"
+
+[tool.pylint.master]
+disable = ["super-with-arguments"]
+output-format = "colorized"
+
+[tool.pytest.ini_options]
+addopts = "--junitxml=tests/unittests-report.xml --doctest-modules --ignore examples/ --color=yes --verbose"
