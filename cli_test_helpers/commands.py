@@ -1,8 +1,13 @@
 """
 Useful commands for writing tests for your CLI tool
 """
-from argparse import Namespace
+
 from sys import version_info
+
+try:
+    from types import SimpleNamespace as Namespace
+except ImportError:  # Python < 3.3
+    from argparse import Namespace
 
 if version_info < (3, 5):  # Python 2.7
     from subprocess import PIPE, CalledProcessError, check_output
