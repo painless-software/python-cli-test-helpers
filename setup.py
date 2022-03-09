@@ -51,6 +51,6 @@ setup(
         'Topic :: Software Development :: Testing :: Unit',
     ],
     install_requires=[
-        'mock<4; python_version<"3"',
+        'mock<5; python_version<"3"',
     ],
 )
