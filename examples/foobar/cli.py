@@ -13,6 +13,6 @@ def main():
 
 
 @main.command()
-def baz():
+def example():
     """An example command"""
-    command.baz()
+    command.example()

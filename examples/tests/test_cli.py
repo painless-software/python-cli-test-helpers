@@ -1,11 +1,11 @@
 """
 Tests for command line interface (CLI)
 """
-import pytest
-
-from cli_test_helpers import shell
 from importlib.metadata import version
 from os import linesep
+
+import pytest
+from cli_test_helpers import shell
 
 import foobar.cli
 
@@ -37,11 +37,11 @@ def test_version():
     assert result.exit_code == 0
 
 
-def test_baz_command():
+def test_example_command():
     """
     Is command available?
     """
-    result = shell('foobar baz --help')
+    result = shell('foobar example --help')
     assert result.exit_code == 0
 
 
