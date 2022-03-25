@@ -6,6 +6,9 @@ skips = ["B404","B602"]
 [tool.black]
 color = true
 
+[tool.coverage.run]
+source = ["cli_test_helpers"]
+
 [tool.coverage.xml]
 output = "tests/coverage-report.xml"
 
