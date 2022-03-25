@@ -1,42 +1,44 @@
-#!/usr/bin/env python3
 """
 Packaging for example CLI tool
 """
+from pathlib import Path
+
 from setuptools import find_packages, setup
 
 import foobar as package
 
 
 def read_file(filename):
-    """Fetch the contents of a file"""
-    with open(filename) as file:
-        return file.read()
+    """Read a text file and return its contents."""
+    project_home = Path(__file__).parent.resolve()
+    file_path = project_home / filename
+    return file_path.read_text(encoding="utf-8")
 
 
 setup(
-    name=package.__name__.replace('_', '-'),
+    name='foobar',
     version=package.__version__,
-    description=package.__doc__.strip().split('\n')[0],
+    description=package.__doc__.strip().split('\n', maxsplit=1)[0],
     long_description=read_file('README.md'),
     long_description_content_type='text/markdown',
-    url=package.__url__,
-    author=package.__author__,
-    author_email=package.__email__,
-    license=package.__license__,
+    url='https://example.com/',
+    author='Foo Bar',
+    author_email='foo.bar@example.com',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: System Administrators',
         'Topic :: System :: Networking',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     packages=find_packages(exclude=['tests']),
-    install_requires=read_file('requirements.in'),
+    install_requires=[
+        'click',
+    ],
     entry_points={
         'console_scripts': [
             'foobar = foobar.cli:main',

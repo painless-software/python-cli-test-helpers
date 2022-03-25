@@ -4,7 +4,7 @@ Example command module
 import os
 
 
-def baz():
+def example():
     """An example command"""
     try:
         os.environ['SECRET']
