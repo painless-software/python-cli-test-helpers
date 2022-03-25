@@ -24,8 +24,8 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.9'
     - name: Install prerequisites
-      run: python -m pip install --upgrade setuptools pip tox
+      run: python -m pip install tox --disable-pip-version-check
     - name: Run ${{ matrix.env }}
       run: tox -e ${{ matrix.env }}
