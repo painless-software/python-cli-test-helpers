@@ -5,6 +5,9 @@ on:
     tags:
     - "*"
 
+env:
+  PY_COLORS: "1"
+
 jobs:
   publish:
     runs-on: ubuntu-latest
