@@ -4,10 +4,10 @@ Tests for command line interface (CLI)
 from importlib.metadata import version
 from os import linesep
 
-import pytest
-from cli_test_helpers import shell
-
 import foobar.cli
+import pytest
+
+from cli_test_helpers import shell
 
 
 def test_runas_module():

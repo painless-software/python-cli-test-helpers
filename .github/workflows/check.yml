@@ -19,6 +19,7 @@ jobs:
       matrix:
         env:
         - flake8
+        - isort
         - pylint
         - bandit
         - readme
