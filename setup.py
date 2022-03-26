@@ -4,6 +4,7 @@ Packaging setup for cli-test-helpers
 """
 
 from os.path import abspath, dirname, join
+
 from setuptools import find_packages, setup
 
 

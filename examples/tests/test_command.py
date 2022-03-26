@@ -3,10 +3,10 @@ Tests for the command module
 """
 from unittest.mock import patch
 
-import pytest
-from cli_test_helpers import ArgvContext, EnvironContext
-
 import foobar.command
+import pytest
+
+from cli_test_helpers import ArgvContext, EnvironContext
 
 
 @patch('foobar.command.example')

@@ -3,9 +3,8 @@ Packaging for example CLI tool
 """
 from pathlib import Path
 
-from setuptools import find_packages, setup
-
 import foobar as package
+from setuptools import find_packages, setup
 
 
 def read_file(filename):
