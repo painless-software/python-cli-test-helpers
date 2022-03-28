@@ -22,7 +22,8 @@ jobs:
         - isort
         - pylint
         - bandit
-        - examples
+        - example-argparse
+        - example-click
         - readme
         - docs
     steps:
