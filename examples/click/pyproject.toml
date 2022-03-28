@@ -1,0 +1,15 @@
+[tool.black]
+color = true
+
+[tool.coverage.run]
+source = ["foobar"]
+
+[tool.isort]
+color_output = true
+profile = "black"
+
+[tool.pylint.master]
+output-format = "colorized"
+
+[tool.pytest.ini_options]
+addopts = "--color=yes --doctest-modules --verbose"
