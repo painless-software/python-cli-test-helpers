@@ -21,4 +21,4 @@ disable = ["super-with-arguments"]
 output-format = "colorized"
 
 [tool.pytest.ini_options]
-addopts = "--junitxml=tests/unittests-report.xml --doctest-modules --ignore examples/ --color=yes --verbose"
+addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/unittests-report.xml --verbose"
