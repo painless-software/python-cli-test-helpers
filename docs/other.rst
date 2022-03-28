@@ -15,6 +15,7 @@ These are a few projects who use :pypi:`cli-test-helpers`. Take a look at
 their tests, how they use mocks, how they structure their code to make writing
 tests easy!
 
+- :gitlab:`Coding Exercise Matrix <bittner/coding-exercise-matrix>`
 - :github:`Concierge CLI <vshn/concierge-cli>`
 - :github:`Kustomize Wrapper <painless-software/kustomize-wrapper>`
 - :github:`PyClean <bittner/pyclean>`
