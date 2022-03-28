@@ -8,10 +8,10 @@ You have prepared a ``setup.py`` with a CLI entrypoint. For the tests you have
 prepared a ``tests/`` folder (outside of ``foobar/``, because you don't want
 your tests to be packaged up with your application code).
 
-Then your directory layout looks somewhat like `our example`_.
+Then your directory layout looks somewhat like one of `our examples`_.
 
 .. _pytest: https://pytest.org/
-.. _our example:
+.. _our examples:
     https://github.com/painless-software/python-cli-test-helpers/tree/main/examples
 
 Functional tests
@@ -32,7 +32,7 @@ interface definition.
 
 .. |example (test-cli)| replace:: example
 .. _example (test-cli):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/tests/test_cli.py
+    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/click/tests/test_cli.py
 
 Unit tests
 ----------
@@ -68,4 +68,4 @@ See |example (test-command)|_.
 
 .. |example (test-command)| replace:: example
 .. _example (test-command):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/tests/test_command.py
+    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/click/tests/test_command.py

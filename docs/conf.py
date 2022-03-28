@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Python CLI Test Helpers'
-copyright = '2019-2022, Peter Bittner'
+copyright = '2019, Peter Bittner'
 author = 'Peter Bittner'
 
 
@@ -42,6 +42,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 extlinks = {
     'github': ('https://github.com/%s', ''),
+    'gitlab': ('https://gitlab.com/%s', ''),
     'pypi': ('https://pypi.org/project/%s', ''),
 }
 
