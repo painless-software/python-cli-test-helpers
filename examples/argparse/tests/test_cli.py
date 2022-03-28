@@ -33,22 +33,30 @@ def test_version():
     expected_version = version('foobar')
     result = shell('foobar --version')
 
-    assert result.stdout == f"foobar, version {expected_version}{linesep}"
+    assert result.stdout == f"{expected_version}{linesep}"
     assert result.exit_code == 0
 
 
-def test_example_command():
+def test_get_action():
     """
-    Is command available?
+    Is action argument available?
     """
-    result = shell('foobar example --help')
+    result = shell('foobar get --help')
+    assert result.exit_code == 0
+
+
+def test_set_action():
+    """
+    Is action argument available?
+    """
+    result = shell('foobar set --help')
     assert result.exit_code == 0
 
 
 # NOTE:
-# You can continue here, adding all CLI command combinations
-# using a non-destructive option, such as --help, to test for
-# the availability of the CLI command or option.
+# You can continue here, adding all CLI action and option combinations
+# using a non-destructive option, such as --help, to test for the
+# availability of the CLI command or option.
 
 
 def test_cli():

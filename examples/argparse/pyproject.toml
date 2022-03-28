@@ -4,9 +4,6 @@ color = true
 [tool.coverage.run]
 source = ["foobar"]
 
-[tool.coverage.xml]
-output = "tests/coverage-report.xml"
-
 [tool.isort]
 color_output = true
 profile = "black"

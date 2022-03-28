@@ -6,13 +6,9 @@ import click
 from . import command
 
 
-@click.group()
+@click.command()
 @click.version_option()
-def main():
+@click.argument('envvar')
+def main(envvar):
     """An example CLI"""
-
-
-@main.command()
-def example():
-    """An example command"""
-    command.example()
+    command.example(envvar)
