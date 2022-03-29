@@ -9,6 +9,9 @@ color = true
 [tool.coverage.run]
 source = ["cli_test_helpers"]
 
+[tool.coverage.report]
+show_missing = true
+
 [tool.coverage.xml]
 output = "tests/coverage-report.xml"
 
