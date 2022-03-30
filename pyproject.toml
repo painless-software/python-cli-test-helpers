@@ -12,9 +12,6 @@ source = ["cli_test_helpers"]
 [tool.coverage.report]
 show_missing = true
 
-[tool.coverage.xml]
-output = "tests/coverage-report.xml"
-
 [tool.isort]
 color_output = true
 profile = "black"
@@ -24,4 +21,4 @@ disable = ["super-with-arguments"]
 output-format = "colorized"
 
 [tool.pytest.ini_options]
-addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/unittests-report.xml --verbose"
+addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/junit-report.xml --verbose"
