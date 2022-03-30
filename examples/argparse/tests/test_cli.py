@@ -7,7 +7,7 @@ from os import linesep
 import foobar.cli
 import pytest
 
-from cli_test_helpers import shell
+from cli_test_helpers import ArgvContext, shell
 
 
 def test_runas_module():
@@ -41,16 +41,20 @@ def test_get_action():
     """
     Is action argument available?
     """
-    result = shell('foobar get --help')
-    assert result.exit_code == 0
+    with ArgvContext('foobar', 'get'):
+        args = foobar.cli.parse_arguments()
+
+    assert args.action == 'get'
 
 
 def test_set_action():
     """
     Is action argument available?
     """
-    result = shell('foobar set --help')
-    assert result.exit_code == 0
+    with ArgvContext('foobar', 'set'):
+        args = foobar.cli.parse_arguments()
+
+    assert args.action == 'set'
 
 
 # NOTE:
