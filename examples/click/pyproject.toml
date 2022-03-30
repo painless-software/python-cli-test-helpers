@@ -4,6 +4,9 @@ color = true
 [tool.coverage.run]
 source = ["foobar"]
 
+[tool.coverage.report]
+show_missing = true
+
 [tool.isort]
 color_output = true
 profile = "black"
