@@ -3,7 +3,7 @@ Tests for the command module
 """
 from unittest.mock import patch
 
-import foobar.command
+import foobar
 import pytest
 
 from cli_test_helpers import ArgvContext, EnvironContext
