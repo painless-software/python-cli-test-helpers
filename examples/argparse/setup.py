@@ -35,9 +35,7 @@ setup(
     ],
     python_requires='>=3.8',
     packages=find_packages(exclude=['tests']),
-    install_requires=[
-        'click',
-    ],
+    install_requires=[],
     entry_points={
         'console_scripts': [
             'foobar = foobar.cli:main',
