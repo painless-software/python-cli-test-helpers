@@ -48,4 +48,28 @@ See the `documentation`_ for installation instructions and a tutorial.
 Examples
 --------
 
-The `examples`_ folder contains a hands-on example you can directly start to use.
+The `examples`_ folder contains hands-on example projects you can start to use
+directly.
+
+Development
+-----------
+
+This project uses Tox to run its test suite. Install and use it locally like
+this:
+
+.. code-block:: console
+
+    python3 -m pip install tox
+
+.. code-block:: console
+
+    tox -lv               # list available environments
+    tox -e flake8,py310   # run a few environments
+    tox                   # run entire suite
+
+The included example projects can be tested independently with their dedicated
+environments, e.g.
+
+.. code-block:: console
+
+    tox -e example-docopt
