@@ -57,11 +57,11 @@ Development
 This project uses Tox to run its test suite. Install and use it locally like
 this:
 
-.. code-block:: console
+.. code-block:: shell
 
     python3 -m pip install tox
 
-.. code-block:: console
+.. code-block:: shell
 
     tox -lv               # list available environments
     tox -e flake8,py310   # run a few environments
@@ -70,6 +70,6 @@ this:
 The included example projects can be tested independently with their dedicated
 environments, e.g.
 
-.. code-block:: console
+.. code-block:: shell
 
     tox -e example-docopt
