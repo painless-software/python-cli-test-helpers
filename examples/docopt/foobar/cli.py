@@ -4,11 +4,11 @@ An example CLI program.
 
 Usage:
   foobar (-h | --help | --version)
-  foobar [-s | --silent] FILE
-  foobar [-v | --verbose] FILE
+  foobar [-s | --silent] <file>
+  foobar [-v | --verbose] <file>
 
 Positional arguments:
-  FILE           target file path name
+  file           target file path name
 
 Optional arguments:
   -h, --help     show this help message and exit
@@ -29,7 +29,7 @@ def parse_arguments():
     args = docopt(__doc__, version=__version__)
 
     return dict(
-        file=args['FILE'],
+        file=args['<file>'],
         silent=args['-s'] or args['--silent'],
         verbose=args['-v'] or args['--verbose'],
     )

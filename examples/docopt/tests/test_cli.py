@@ -45,6 +45,20 @@ def test_file_argument():
     assert result.exit_code == 0
 
 
+def test_mandatory_arguments():
+    """
+    Is the `file` parameter mandatory?
+    """
+    result = shell('foobar')
+    assert result.exit_code != 0, result.stdout
+
+
+# NOTE:
+# You can continue here, adding all CLI action and option combinations
+# using a non-destructive option, such as --help, to test for the
+# availability of the CLI command or option.
+
+
 @pytest.mark.parametrize('option,silent,verbose', [
     ('-s', True, False),
     ('-v', False, True),
@@ -61,18 +75,3 @@ def test_options(option, silent, verbose):
     assert args['file'] == 'myfile'
     assert args['silent'] == silent
     assert args['verbose'] == verbose
-
-
-# NOTE:
-# You can continue here, adding all CLI action and option combinations
-# using a non-destructive option, such as --help, to test for the
-# availability of the CLI command or option.
-
-
-def test_cli():
-    """
-    Does CLI stop execution w/o a command argument?
-    """
-    with pytest.raises(SystemExit):
-        foobar.cli.main()
-        pytest.fail("CLI doesn't abort asking for a command argument")
