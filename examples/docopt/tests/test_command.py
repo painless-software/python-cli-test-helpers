@@ -17,11 +17,11 @@ def test_process_is_called(mock_command):
         foobar.cli.main()
 
     assert mock_command.called
-    assert mock_command.call_args.kwargs == {
-        'file': 'myfile',
-        'silent': False,
-        'verbose': True,
-    }
+    assert mock_command.call_args.kwargs == dict(
+        file='myfile',
+        silent=False,
+        verbose=True,
+    )
 
 
 @patch('foobar.command.print')
