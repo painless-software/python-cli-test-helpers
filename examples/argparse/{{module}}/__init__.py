@@ -1,5 +1,5 @@
 """
-An example docopt CLI
+{{project}}
 """
 
 __version__ = '1.0.0'

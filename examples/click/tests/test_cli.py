@@ -4,7 +4,7 @@ Tests for command line interface (CLI)
 from importlib.metadata import version
 from os import linesep
 
-import foobar.cli
+import {{module}}.cli
 from click.testing import CliRunner
 
 from cli_test_helpers import shell
@@ -14,7 +14,7 @@ def test_runas_module():
     """
     Can this package be run as a Python module?
     """
-    result = shell('python -m foobar --help')
+    result = shell('python -m {{module}} --help')
     assert result.exit_code == 0
 
 
@@ -22,7 +22,7 @@ def test_entrypoint():
     """
     Is entrypoint script installed? (setup.py)
     """
-    result = shell('foobar --help')
+    result = shell('{{package}} --help')
     assert result.exit_code == 0
 
 
@@ -30,10 +30,10 @@ def test_version():
     """
     Does --version display information as expected?
     """
-    expected_version = version('foobar')
-    result = shell('foobar --version')
+    expected_version = version('{{package}}')
+    result = shell('{{package}} --version')
 
-    assert result.stdout == f"foobar, version {expected_version}{linesep}"
+    assert result.stdout == f"{{package}}, version {expected_version}{linesep}"
     assert result.exit_code == 0
 
 
@@ -41,7 +41,7 @@ def test_example_command():
     """
     Is command available?
     """
-    result = shell('foobar example --help')
+    result = shell('{{package}} example --help')
     assert result.exit_code == 0
 
 
@@ -56,6 +56,6 @@ def test_cli():
     Does CLI stop execution w/o a command argument?
     """
     runner = CliRunner()
-    result = runner.invoke(foobar.cli.main)
+    result = runner.invoke({{module}}.cli.main)
 
     assert result.exit_code != 0

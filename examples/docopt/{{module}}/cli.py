@@ -1,11 +1,11 @@
-"""Foobar
+"""{{package}}
 
-An example CLI program.
+{{project}}.
 
 Usage:
-  foobar (-h | --help | --version)
-  foobar [-s | --silent] <file>
-  foobar [-v | --verbose] <file>
+  {{package}} (-h | --help | --version)
+  {{package}} [-s | --silent] <file>
+  {{package}} [-v | --verbose] <file>
 
 Positional arguments:
   file           target file path name
@@ -36,7 +36,7 @@ def parse_arguments():
 
 
 def main():
-    """An example CLI"""
+    """{{project}}"""
     args = parse_arguments()
 
     command.process(**args)

@@ -3,7 +3,7 @@ Packaging for example CLI tool
 """
 from pathlib import Path
 
-import foobar as package
+import {{module}} as package
 from setuptools import find_packages, setup
 
 
@@ -15,14 +15,14 @@ def read_file(filename):
 
 
 setup(
-    name='foobar',
+    name='{{package}}',
     version=package.__version__,
     description=package.__doc__.strip().split('\n', maxsplit=1)[0],
     long_description=read_file('README.md'),
     long_description_content_type='text/markdown',
-    url='https://example.com/',
-    author='Foo Bar',
-    author_email='foo.bar@example.com',
+    url='{{url}}',
+    author='{{author}}',
+    author_email='{{email}}',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: System Administrators',
@@ -40,7 +40,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'foobar = foobar.cli:main',
+            '{{package}} = {{module}}.cli:main',
         ],
     },
 )

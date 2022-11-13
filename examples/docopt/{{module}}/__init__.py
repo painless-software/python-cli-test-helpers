@@ -1,5 +1,5 @@
 """
-An example argparse CLI
+{{project}}
 """
 
 __version__ = '1.0.0'

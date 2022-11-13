@@ -1,4 +1,4 @@
-# An Example CLI
+# {{project}} CLI
 
 This example uses `argparse` from the Python standard library.
 

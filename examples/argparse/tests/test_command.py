@@ -3,19 +3,19 @@ Tests for the command module
 """
 from unittest.mock import patch
 
-import foobar
+import {{module}}
 import pytest
 
 from cli_test_helpers import ArgvContext, EnvironContext
 
 
-@patch('foobar.command.example')
+@patch('{{module}}.command.example')
 def test_cli_command(mock_command):
     """
     Is the correct code called when invoked via the CLI?
     """
-    with ArgvContext('foobar', 'get'):
-        foobar.cli.main()
+    with ArgvContext('{{package}}', 'get'):
+        {{module}}.cli.main()
 
     assert mock_command.called
 
@@ -26,7 +26,7 @@ def test_fail_without_secret():
     """
     message_regex = "Environment value SECRET not set."
 
-    with ArgvContext('foobar', 'get'), EnvironContext(SECRET=None):
+    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None):
         with pytest.raises(SystemExit, match=message_regex):
-            foobar.cli.main()
+            {{module}}.cli.main()
             pytest.fail("CLI doesn't abort with missing SECRET")

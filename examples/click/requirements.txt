@@ -5,4 +5,4 @@
 #    pip-compile
 #
 click==8.1.3
-    # via foobar (setup.py)
+    # via {{package}} (setup.py)

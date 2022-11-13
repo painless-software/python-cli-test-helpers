@@ -1,0 +1,7 @@
+project: Argparse CLI Example
+package: "{{ project.lower().replace(' ', '-') }}"
+module: "{{ project.lower().replace(' ', '_') }}"
+author: Your name
+email: your.name@example.com
+url: https://example.com
+_templates_suffix: ""
