@@ -15,6 +15,7 @@ show_missing = true
 [tool.isort]
 color_output = true
 profile = "black"
+skip_glob = ["examples/*.py"]
 
 [tool.pylint.master]
 disable = ["super-with-arguments"]
