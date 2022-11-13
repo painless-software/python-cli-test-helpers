@@ -1,5 +1,5 @@
 """
-An example CLI program.
+Command line interface implementation.
 """
 import argparse
 
@@ -22,7 +22,7 @@ def parse_arguments():
 
 
 def main():
-    """An example CLI"""
+    """{{project}}"""
     args = parse_arguments()
 
     if args.action == 'get':

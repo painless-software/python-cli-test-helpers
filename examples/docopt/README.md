@@ -1,4 +1,4 @@
-# An Example CLI
+# {{project}} CLI
 
 This example uses the docopt-ng CLI package.
 

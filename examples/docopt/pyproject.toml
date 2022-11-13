@@ -2,7 +2,7 @@
 color = true
 
 [tool.coverage.run]
-source = ["foobar"]
+source = ["{{module}}"]
 
 [tool.coverage.report]
 show_missing = true

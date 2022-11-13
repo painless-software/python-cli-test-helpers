@@ -1,5 +1,5 @@
 """
-An example CLI program
+Command line interface implementation.
 """
 import click
 
@@ -10,5 +10,5 @@ from . import command
 @click.version_option()
 @click.argument('envvar')
 def main(envvar):
-    """An example CLI"""
+    """{{project}}"""
     command.example(envvar)

@@ -5,4 +5,4 @@
 #    pip-compile
 #
 docopt-ng==0.8.1
-    # via foobar (setup.py)
+    # via {{package}} (setup.py)
