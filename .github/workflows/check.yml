@@ -24,6 +24,7 @@ jobs:
         - bandit
         - example-argparse
         - example-click
+        - example-docopt
         - readme
         - docs
     steps:
