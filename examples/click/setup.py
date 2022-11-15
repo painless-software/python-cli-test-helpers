@@ -10,8 +10,7 @@ from setuptools import find_packages, setup
 def read_file(filename):
     """Read a text file and return its contents."""
     project_home = Path(__file__).parent.resolve()
-    file_path = project_home / filename
-    return file_path.read_text(encoding="utf-8")
+    return (project_home / filename).read_text(encoding="utf-8")
 
 
 setup(
