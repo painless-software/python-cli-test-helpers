@@ -10,7 +10,7 @@ def parse_arguments():
     """
     Parse and handle CLI arguments
     """
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description='{{project}}')
 
     parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('action', choices=['get', 'set'])
