@@ -15,4 +15,4 @@ e.g.
 
 .. code-block:: console
 
-    copier copy examples/docopt cli-example
+    copier examples/docopt cli-example
