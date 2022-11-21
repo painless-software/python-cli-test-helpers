@@ -10,7 +10,7 @@ Usage:
 Positional arguments:
   file           target file path name
 
-Optional arguments:
+Options:
   -h, --help     show this help message and exit
   -s, --silent   don't show progress output
   -v, --verbose  explain progress verbosely
@@ -30,8 +30,8 @@ def parse_arguments():
 
     return dict(
         file=args['<file>'],
-        silent=args['-s'] or args['--silent'],
-        verbose=args['-v'] or args['--verbose'],
+        silent=args['--silent'],
+        verbose=args['--verbose'],
     )
 
 
