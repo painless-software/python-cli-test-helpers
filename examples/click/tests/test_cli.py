@@ -1,6 +1,7 @@
 """
 Tests for command line interface (CLI)
 """
+from importlib import import_module
 from importlib.metadata import version
 from os import linesep
 
@@ -8,6 +9,13 @@ import {{module}}.cli
 from click.testing import CliRunner
 
 from cli_test_helpers import shell
+
+
+def test_main_module():
+    """
+    Exercise (most of) the code in the ``__main__`` module.
+    """
+    import_module('{{module}}.__main__')
 
 
 def test_runas_module():
