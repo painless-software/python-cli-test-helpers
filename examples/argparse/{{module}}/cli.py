@@ -7,9 +7,7 @@ from . import __version__, command
 
 
 def parse_arguments():
-    """
-    Parse and handle CLI arguments
-    """
+    """Parse and handle CLI arguments."""
     parser = argparse.ArgumentParser(description='{{project}}')
 
     parser.add_argument('--version', action='version', version=__version__)
@@ -21,11 +19,15 @@ def parse_arguments():
     return args
 
 
-def main():
-    """{{project}}"""
-    args = parse_arguments()
-
+def dispatch(args):
+    """Execute functionality requested through the CLI."""
     if args.action == 'get':
         command.example(args)
     else:
         raise NotImplementedError(args.action)
+
+
+def main():
+    """{{project}}."""
+    args = parse_arguments()
+    dispatch(args)

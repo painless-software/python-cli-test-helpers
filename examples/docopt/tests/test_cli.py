@@ -4,6 +4,7 @@ Tests for command line interface (CLI)
 from importlib import import_module
 from importlib.metadata import version
 from os import linesep
+from unittest.mock import patch
 
 import {{module}}.cli
 import pytest
@@ -34,6 +35,21 @@ def test_entrypoint():
     assert result.exit_code == 0
 
 
+@patch('{{module}}.command.dispatch')
+def test_usage(mock_dispatch):
+    """
+    Does CLI abort w/o arguments, displaying usage instructions?
+    """
+    with ArgvContext('{{package}}'), pytest.raises(SystemExit):
+        {{module}}.cli.main()
+
+    assert not mock_dispatch.called, 'CLI should stop execution'
+
+    result = shell('{{package}}')
+
+    assert 'Usage:' in result.stderr
+
+
 def test_version():
     """
     Does --version display information as expected?
@@ -51,14 +67,6 @@ def test_file_argument():
     """
     result = shell('{{package}} myfile --help')
     assert result.exit_code == 0
-
-
-def test_mandatory_arguments():
-    """
-    Is the `file` parameter mandatory?
-    """
-    result = shell('{{package}}')
-    assert result.exit_code != 0, result.stdout
 
 
 # NOTE:
