@@ -8,16 +8,16 @@ import {{module}}
 from cli_test_helpers import ArgvContext
 
 
-@patch('{{module}}.command.process')
-def test_process_is_called(mock_command):
+@patch('{{module}}.command.dispatch')
+def test_dispatch_is_called(mock_dispatch):
     """
     Is the correct code called when invoked via the CLI?
     """
     with ArgvContext('{{package}}', 'myfile', '-v'):
         {{module}}.cli.main()
 
-    assert mock_command.called
-    assert mock_command.call_args.kwargs == dict(
+    assert mock_dispatch.called
+    assert mock_dispatch.call_args.kwargs == dict(
         file='myfile',
         silent=False,
         verbose=True,
@@ -26,11 +26,11 @@ def test_process_is_called(mock_command):
 
 @patch('{{module}}.command.print')
 @patch('{{module}}.command.open')
-def test_process_business_logic(mock_openfile, mock_print):
+def test_dispatch_business_logic(mock_openfile, mock_print):
     """
-    Walk the code of the process function.
+    Walk the code of the dispatch function.
     """
-    {{module}}.command.process(file='myfile', silent=False, verbose=True)
+    {{module}}.command.dispatch(file='myfile', silent=False, verbose=True)
 
     assert mock_openfile.called
     assert mock_print.call_count == 3, \

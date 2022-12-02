@@ -34,6 +34,17 @@ def test_entrypoint():
     assert result.exit_code == 0
 
 
+def test_usage():
+    """
+    Does CLI abort w/o arguments, displaying usage instructions?
+    """
+    runner = CliRunner()
+    result = runner.invoke({{module}}.cli.main)
+
+    assert 'Usage:' in result.output
+    assert result.exit_code != 0
+
+
 def test_version():
     """
     Does --version display information as expected?
@@ -57,13 +68,3 @@ def test_example_command():
 # You can continue here, adding all CLI command combinations
 # using a non-destructive option, such as --help, to test for
 # the availability of the CLI command or option.
-
-
-def test_cli():
-    """
-    Does CLI stop execution w/o a command argument?
-    """
-    runner = CliRunner()
-    result = runner.invoke({{module}}.cli.main)
-
-    assert result.exit_code != 0

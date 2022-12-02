@@ -4,6 +4,7 @@ Tests for command line interface (CLI)
 from importlib import import_module
 from importlib.metadata import version
 from os import linesep
+from unittest.mock import patch
 
 import {{module}}.cli
 import pytest
@@ -32,6 +33,21 @@ def test_entrypoint():
     """
     result = shell('{{package}} --help')
     assert result.exit_code == 0
+
+
+@patch('{{module}}.cli.dispatch')
+def test_usage(mock_dispatch):
+    """
+    Does CLI abort w/o arguments, displaying usage instructions?
+    """
+    with ArgvContext('{{package}}'), pytest.raises(SystemExit):
+        {{module}}.cli.main()
+
+    assert not mock_dispatch.called, 'CLI should stop execution'
+
+    result = shell('{{package}}')
+
+    assert 'usage:' in result.stderr
 
 
 def test_version():
@@ -69,12 +85,3 @@ def test_set_action():
 # You can continue here, adding all CLI action and option combinations
 # using a non-destructive option, such as --help, to test for the
 # availability of the CLI command or option.
-
-
-def test_cli():
-    """
-    Does CLI stop execution w/o a command argument?
-    """
-    with pytest.raises(SystemExit):
-        {{module}}.cli.main()
-        pytest.fail("CLI doesn't abort asking for a command argument")

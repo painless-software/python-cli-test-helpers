@@ -23,9 +23,7 @@ from . import command
 
 
 def parse_arguments():
-    """
-    Parse and handle CLI arguments
-    """
+    """Parse and handle CLI arguments."""
     args = docopt(__doc__, version=__version__)
 
     return dict(
@@ -36,7 +34,6 @@ def parse_arguments():
 
 
 def main():
-    """{{project}}"""
+    """{{project}}."""
     args = parse_arguments()
-
-    command.process(**args)
+    command.dispatch(**args)

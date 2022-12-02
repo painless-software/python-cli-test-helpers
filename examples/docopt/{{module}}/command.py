@@ -1,9 +1,9 @@
 """
-Example command module
+Example command module.
 """
 
 
-def process(file, silent, verbose):
+def dispatch(file, silent, verbose):
     """An example implementation"""
 
     with open(file) as textfile:
