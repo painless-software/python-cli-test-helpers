@@ -41,9 +41,9 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 extlinks = {
-    'github': ('https://github.com/%s', ''),
-    'gitlab': ('https://gitlab.com/%s', ''),
-    'pypi': ('https://pypi.org/project/%s', ''),
+    'github': ('https://github.com/%s', None),
+    'gitlab': ('https://gitlab.com/%s', None),
+    'pypi': ('https://pypi.org/project/%s', None),
 }
 
 # -- Options for HTML output -------------------------------------------------
