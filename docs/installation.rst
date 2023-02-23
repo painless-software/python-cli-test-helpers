@@ -18,7 +18,7 @@ environment (see |example (tox.ini)|_), e.g.
     # FILE: tox.ini
 
     [tox]
-    envlist = py{38,39,310}
+    envlist = py3{8,9,10,11}
 
     [testenv]
     deps = cli-test-helpers,pytest
