@@ -65,6 +65,7 @@ this:
 
     tox -lv               # list available environments
     tox -e flake8,py310   # run a few environments
+    tox -e py             # run tests with default Python
     tox                   # run entire suite
 
 The included example projects can be tested independently with their dedicated
