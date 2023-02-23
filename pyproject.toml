@@ -1,6 +1,5 @@
 [tool.bandit]
-# NOTE: Exclude/ignore of files is currently broken in Bandit
-exclude = [".git",".github",".tox","tests"]
+exclude_dirs = [".git",".github",".tox","tests"]
 skips = ["B404","B602"]
 
 [tool.black]
