@@ -25,7 +25,7 @@ jobs:
         - example-argparse
         - example-click
         - example-docopt
-        - readme
+        - package
         - docs
     steps:
     - uses: actions/checkout@v3
