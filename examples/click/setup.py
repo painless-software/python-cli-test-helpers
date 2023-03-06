@@ -3,8 +3,9 @@ Packaging for example CLI tool
 """
 from pathlib import Path
 
-import {{module}} as package
 from setuptools import find_packages, setup
+
+import {{module}} as package
 
 
 def read_file(filename):

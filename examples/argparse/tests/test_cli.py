@@ -6,10 +6,10 @@ from importlib.metadata import version
 from os import linesep
 from unittest.mock import patch
 
-import {{module}}.cli
 import pytest
-
 from cli_test_helpers import ArgvContext, shell
+
+import {{module}}.cli
 
 
 def test_main_module():

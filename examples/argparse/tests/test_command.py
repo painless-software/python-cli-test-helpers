@@ -3,10 +3,10 @@ Tests for the command module
 """
 from unittest.mock import patch
 
-import {{module}}
 import pytest
-
 from cli_test_helpers import ArgvContext, EnvironContext
+
+import {{module}}
 
 
 @patch('{{module}}.command.example')

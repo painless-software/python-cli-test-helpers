@@ -18,8 +18,7 @@ Options:
 """
 from docopt import docopt
 
-from . import __version__
-from . import command
+from . import __version__, command
 
 
 def parse_arguments():

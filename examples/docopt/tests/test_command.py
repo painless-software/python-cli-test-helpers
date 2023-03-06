@@ -3,9 +3,9 @@ Tests for the command module
 """
 from unittest.mock import patch
 
-import {{module}}
-
 from cli_test_helpers import ArgvContext
+
+import {{module}}
 
 
 @patch('{{module}}.command.dispatch')

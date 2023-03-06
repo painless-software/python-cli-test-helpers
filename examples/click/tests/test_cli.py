@@ -5,10 +5,10 @@ from importlib import import_module
 from importlib.metadata import version
 from os import linesep
 
+from cli_test_helpers import shell
+
 import {{module}}.cli
 from click.testing import CliRunner
-
-from cli_test_helpers import shell
 
 
 def test_main_module():
