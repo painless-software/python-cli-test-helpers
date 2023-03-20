@@ -5,9 +5,10 @@ Examples
 #. `click <click>`__ – *using the Click CLI library with TDD*
 #. `docopt <docopt>`__ – *using the docopt-ng CLI library with TDD*
 
-The example folders are `Copier <https://copier.readthedocs.io/>`_ templates.
+The examples folder is a `Copier <https://copier.readthedocs.io/>`_ template.
 You can use ``copier`` to generate a working CLI project suiting your needs,
-e.g.
+interactively selecting one of the CLI libraries above. Clone this repository
+and run:
 
 .. code-block:: console
 
@@ -15,4 +16,4 @@ e.g.
 
 .. code-block:: console
 
-    copier examples/docopt cli-example
+    copier examples cli-example
