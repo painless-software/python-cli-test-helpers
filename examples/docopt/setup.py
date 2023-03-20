@@ -1,5 +1,5 @@
 """
-Packaging for example CLI tool
+Packaging for {{package}}.
 """
 from pathlib import Path
 

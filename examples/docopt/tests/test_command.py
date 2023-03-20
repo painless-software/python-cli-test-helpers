@@ -1,5 +1,5 @@
 """
-Tests for the command module
+Tests for the command module.
 """
 from unittest.mock import patch
 

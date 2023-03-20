@@ -1,5 +1,5 @@
 """
-Tests for command line interface (CLI)
+Tests for command line interface (CLI).
 """
 from importlib import import_module
 from importlib.metadata import version

@@ -1,5 +1,5 @@
 """
-Helper module to run not-installed version (via ``python3 -m {{module}}``)
+Helper module to run not-installed version (via ``python3 -m {{module}}``).
 """
 from .cli import main
 
