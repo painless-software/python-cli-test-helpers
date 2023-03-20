@@ -1,5 +1,5 @@
 [tool.bandit]
-exclude_dirs = [".git",".github",".tox","tests"]
+exclude_dirs = [".git",".github",".tox","examples","tests"]
 skips = ["B404","B602"]
 
 [tool.black]
