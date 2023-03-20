@@ -1,4 +1,4 @@
-_subdirectory: "{{ engine.lower() }}"
+_subdirectory: "examples/{{ engine.lower() }}"
 _templates_suffix: ""
 engine:
   choices:
