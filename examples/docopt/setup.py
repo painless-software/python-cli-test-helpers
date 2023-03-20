@@ -27,7 +27,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: System Administrators',
         'Topic :: System :: Networking',
-        'License :: OSI Approved :: BSD License',
+        'License :: Other/Proprietary License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
