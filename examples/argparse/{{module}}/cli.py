@@ -15,8 +15,7 @@ def parse_arguments():
     parser.add_argument('envvar', nargs='?', default='SECRET',
                         help='default: %(default)s')
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()
 
 
 def dispatch(args):

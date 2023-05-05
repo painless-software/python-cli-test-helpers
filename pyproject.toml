@@ -26,6 +26,7 @@ addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/jun
 [tool.ruff]
 extend-exclude = ["examples"]
 extend-select = ["B", "BLE", "C4", "C90", "COM", "DJ", "DTZ", "EM", "G", "I", "N", "PIE", "PL", "PT", "PTH", "R", "S", "SIM", "T10", "TID", "W", "YTT"]
+extend-ignore = ["SIM105"]  # Python 2.7 only
 
 [tool.ruff.per-file-ignores]
 "cli_test_helpers/commands.py" = ["S602"]

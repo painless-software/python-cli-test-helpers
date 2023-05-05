@@ -6,9 +6,9 @@ from importlib.metadata import version
 from os import linesep
 
 from cli_test_helpers import shell
+from click.testing import CliRunner
 
 import {{module}}.cli
-from click.testing import CliRunner
 
 
 def test_main_module():
