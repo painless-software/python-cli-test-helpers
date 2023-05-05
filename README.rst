@@ -59,14 +59,19 @@ this:
 
 .. code-block:: shell
 
-    python3 -m pip install tox
+    python3 -m pip install tox 'virtualenv<20.22'
+
+.. note::
+
+   Virtualenv 20.22 dropped support for Python 2.7 and <3.6, which most
+   notably makes Tox fail to detect the PyPy2 executable.
 
 .. code-block:: shell
 
-    tox -lv               # list available environments
-    tox -e flake8,py310   # run a few environments
-    tox -e py             # run tests with default Python
-    tox                   # run entire suite
+    tox -lv             # list available environments
+    tox -e ruff,py311   # run a few environments
+    tox -e py           # run tests with local default Python
+    tox                 # run entire suite
 
 The included example projects can be tested independently with their dedicated
 environments, e.g.
