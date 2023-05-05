@@ -75,7 +75,7 @@ def test_file_argument():
 # availability of the CLI command or option.
 
 
-@pytest.mark.parametrize('option,silent,verbose', [
+@pytest.mark.parametrize(('option', 'silent', 'verbose'), [
     ('-s', True, False),
     ('-v', False, True),
     ('--silent', True, False),

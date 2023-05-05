@@ -25,11 +25,11 @@ def parse_arguments():
     """Parse and handle CLI arguments."""
     args = docopt(__doc__, version=__version__)
 
-    return dict(
-        file=args['<file>'],
-        silent=args['--silent'],
-        verbose=args['--verbose'],
-    )
+    return {
+        "file": args['<file>'],
+        "silent": args['--silent'],
+        "verbose": args['--verbose'],
+    }
 
 
 def main():

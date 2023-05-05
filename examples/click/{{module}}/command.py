@@ -10,4 +10,5 @@ def example(envvar):
         value = os.environ[envvar]
         print(f'{envvar} = {value}')
     except KeyError:
-        raise SystemExit(f'Environment value {envvar} not set.')
+        msg = f'Environment value {envvar} not set.'
+        raise SystemExit(msg)

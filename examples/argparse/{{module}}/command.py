@@ -10,4 +10,5 @@ def example(args):
         value = os.environ[args.envvar]
         print(f'{args.envvar} = {value}')
     except KeyError:
-        raise SystemExit(f'Environment value {args.envvar} not set.')
+        msg = f'Environment value {args.envvar} not set.'
+        raise SystemExit(msg)

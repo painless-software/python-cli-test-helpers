@@ -26,7 +26,7 @@ def test_fail_without_secret():
     """
     message_regex = "Environment value SECRET not set."
 
-    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None):
-        with pytest.raises(SystemExit, match=message_regex):
-            {{module}}.cli.main()
-            pytest.fail("CLI doesn't abort with missing SECRET")
+    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None), pytest.raises(
+        SystemExit, match=message_regex,
+    ):
+        {{module}}.cli.main()

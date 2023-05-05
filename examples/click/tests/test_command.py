@@ -26,7 +26,5 @@ def test_fail_without_secret():
     """
     message_regex = "Environment value SECRET not set."
 
-    with EnvironContext(SECRET=None):
-        with pytest.raises(SystemExit, match=message_regex):
-            {{module}}.command.example('SECRET')
-            pytest.fail("CLI doesn't abort with missing SECRET")
+    with EnvironContext(SECRET=None), pytest.raises(SystemExit, match=message_regex):
+        {{module}}.command.example('SECRET')
