@@ -22,3 +22,12 @@ output-format = "colorized"
 
 [tool.pytest.ini_options]
 addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/junit-report.xml --verbose"
+
+[tool.ruff]
+extend-exclude = ["examples"]
+extend-select = ["B", "BLE", "C4", "C90", "COM", "DJ", "DTZ", "EM", "G", "I", "N", "PIE", "PL", "PT", "PTH", "R", "S", "SIM", "T10", "TID", "W", "YTT"]
+
+[tool.ruff.per-file-ignores]
+"cli_test_helpers/commands.py" = ["S602"]
+"setup.py" = ["PTH"]
+"tests/*.py" = ["S101"]
