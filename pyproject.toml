@@ -1,24 +1,8 @@
-[tool.bandit]
-exclude_dirs = [".git",".github",".tox","examples","tests"]
-skips = ["B404","B602"]
-
-[tool.black]
-color = true
-
 [tool.coverage.run]
 source = ["cli_test_helpers"]
 
 [tool.coverage.report]
 show_missing = true
-
-[tool.isort]
-color_output = true
-profile = "black"
-skip_glob = ["examples/*.py"]
-
-[tool.pylint.master]
-disable = ["super-with-arguments"]
-output-format = "colorized"
 
 [tool.pytest.ini_options]
 addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/junit-report.xml --verbose"
