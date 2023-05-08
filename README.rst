@@ -68,7 +68,7 @@ this:
 
 .. code-block:: shell
 
-    tox -lv             # list available environments
+    tox l               # list available environments
     tox -e ruff,py311   # run a few environments
     tox -e py           # run tests with local default Python
     tox                 # run entire suite
