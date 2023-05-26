@@ -31,17 +31,17 @@ If you use GitLab you can set up badges with the following generic configuration
 
 1. Coverage:
 
-  - Link: https://gitlab.com/%{project_path}/-/graphs/%{default_branch}/charts
-  - Badge image URL: https://gitlab.com/%{project_path}/badges/%{default_branch}/coverage.svg
+  - Link: ``https://gitlab.com/%{project_path}/-/graphs/%{default_branch}/charts``
+  - Badge image URL: ``https://gitlab.com/%{project_path}/badges/%{default_branch}/coverage.svg``
 
 2. Pipeline:
 
-  - Link: https://gitlab.com/%{project_path}/-/pipelines
-  - Badge image URL: https://gitlab.com/%{project_path}/badges/%{default_branch}/pipeline.svg
+  - Link: ``https://gitlab.com/%{project_path}/-/pipelines``
+  - Badge image URL: ``https://gitlab.com/%{project_path}/badges/%{default_branch}/pipeline.svg``
 
 3. Releases:
 
-  - https://gitlab.com/%{project_path}/-/releases
-  - Badge image URL: https://gitlab.com/%{project_path}/-/badges/release.svg
+  - Link: ``https://gitlab.com/%{project_path}/-/releases``
+  - Badge image URL: ``https://gitlab.com/%{project_path}/-/badges/release.svg``
 
 Package releases will be triggered by pushing a Git tag to your Git repository.
