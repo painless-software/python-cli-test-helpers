@@ -45,7 +45,7 @@ pytest:
       coverage_report:
         coverage_format: cobertura
         path: coverage.xml
-      junit: tests/junit-report.xml
+      junit: junit-report.xml
 
 package:
   stage: build
