@@ -31,6 +31,7 @@ setup(
     },
     packages=find_packages(exclude=['test*', 'examples']),
     include_package_data=True,
+    license='GPL-3.0-or-later',
     keywords=['python', 'cli', 'testing', 'helpers'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
