@@ -26,7 +26,6 @@ def test_fail_without_secret():
     """
     message_regex = "Environment value SECRET not set."
 
-    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None), pytest.raises(
-        SystemExit, match=message_regex,
-    ):
+    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None), \
+            pytest.raises(SystemExit, match=message_regex):
         {{module}}.cli.main()
