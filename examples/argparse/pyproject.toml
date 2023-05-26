@@ -8,7 +8,7 @@ source = ["{{module}}"]
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--color=yes --doctest-modules --verbose"
+addopts = "--color=yes --doctest-modules --junitxml=junit-report.xml --verbose"
 
 [tool.ruff]
 extend-select = ["B", "BLE", "C4", "C90", "COM", "DJ", "DTZ", "EM", "G", "I", "N", "PIE", "PL", "PT", "PTH", "R", "S", "SIM", "T10", "TID", "W", "YTT"]
