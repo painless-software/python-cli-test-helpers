@@ -17,7 +17,7 @@ def read_file(filename):
 
 setup(
     name='cli-test-helpers',
-    version='3.3.0',
+    version='3.4.0',
     author='Peter Bittner',
     author_email='peter@painless.software',
     description='Useful helpers for writing tests for your Python CLI program.',
