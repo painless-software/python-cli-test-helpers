@@ -10,9 +10,19 @@ your tests to be packaged up with your application code).
 
 Then your directory layout looks somewhat like one of `our examples`_.
 
+.. note::
+
+    You can easily generate a CLI project of your own from one of the
+    examples of Python CLI test helpers using `Copier`_, e.g.
+
+    .. code-block:: console
+
+        $ copier gh:painless-software/python-cli-test-helpers my-cli
+
 .. _pytest: https://pytest.org/
 .. _our examples:
     https://github.com/painless-software/python-cli-test-helpers/tree/main/examples
+.. _Copier: https://copier.readthedocs.io/
 
 Functional tests
 ----------------
