@@ -1,3 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{package}}"
+version = "0.1.0"
+description = "{{project}}"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "{{author}}", email = "{{email}}"},
+]
+maintainers = [
+  {name = "{{author}}", email = "{{email}}"},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Information Technology",
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Utilities",
+]
+keywords = [
+  "cli",
+]
+requires-python = ">=3.8"
+dependencies = [
+  "docopt-ng",
+]
+
+[project.scripts]
+"{{package}}" = "{{module}}.cli:main"
+
+[project.urls]
+homepage = "{{url}}"
+
 [tool.black]
 color = true
 
@@ -16,3 +58,7 @@ extend-ignore = ["B904"]
 
 [tool.ruff.per-file-ignores]
 "tests/*.py" = ["S101"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests"]

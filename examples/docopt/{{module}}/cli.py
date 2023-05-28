@@ -16,14 +16,16 @@ Options:
   -v, --verbose  explain progress verbosely
   --version      show program's version number and exit
 """
+from importlib.metadata import version
+
 from docopt import docopt
 
-from . import __version__, command
+from . import command
 
 
 def parse_arguments():
     """Parse and handle CLI arguments."""
-    args = docopt(__doc__, version=__version__)
+    args = docopt(__doc__, version=version('{{package}}'))
 
     return {
         "file": args['<file>'],

@@ -2,12 +2,15 @@
 Command line interface implementation.
 """
 import argparse
+from importlib.metadata import version
 
-from . import __version__, command
+from . import command
 
 
 def parse_arguments():
     """Parse and handle CLI arguments."""
+    __version__ = version('{{package}}')
+
     parser = argparse.ArgumentParser(description='{{project}}')
 
     parser.add_argument('--version', action='version', version=__version__)
