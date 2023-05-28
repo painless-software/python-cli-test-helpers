@@ -1,3 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cli-test-helpers"
+version = "3.5.0"
+description = "Useful helpers for writing tests for your Python CLI program."
+readme = "README.rst"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Peter Bittner", email = "peter@painless.software"},
+]
+maintainers = [
+  {name = "Peter Bittner", email = "peter@painless.software"},
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Testing :: Mocking",
+  "Topic :: Software Development :: Testing :: Unit",
+]
+keywords = [
+  "python",
+  "cli",
+  "testing",
+  "helpers",
+]
+dependencies = [
+  "mock<4; python_version<'3'",
+]
+
+[project.urls]
+homepage = "https://github.com/painless-software/python-cli-test-helpers"
+Documentation = "https://python-cli-test-helpers.readthedocs.io/"
+Examples = "https://github.com/painless-software/python-cli-test-helpers/tree/main/examples"
+
 [tool.coverage.run]
 source = ["cli_test_helpers"]
 
@@ -8,7 +59,7 @@ show_missing = true
 addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/junit-report.xml --verbose"
 
 [tool.ruff]
-extend-exclude = ["docs/conf.py", "examples", "setup.py"]
+extend-exclude = ["docs/conf.py", "examples"]
 extend-include = []
 
 [tool.ruff.lint]
@@ -30,3 +81,7 @@ extend-ignore = [
 [tool.ruff.lint.per-file-ignores]
 "cli_test_helpers/commands.py" = ["COM812", "S602"]
 "tests/*.py" = ["D400", "INP001", "S101"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests", "examples"]
