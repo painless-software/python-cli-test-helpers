@@ -69,16 +69,7 @@ pypi-local:
     TWINE_PASSWORD: ${CI_JOB_TOKEN}
     TWINE_REPOSITORY_URL: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi
   script:
-  - |
-    tox -e package exec --quiet -- python -c '
-    from importlib.metadata import version
-    from os import environ
-    ver = version("{{package}}")
-    tag = environ.get("GIT_TAG") or ""
-    error = f"`{ver}` != `{tag}`"
-    abort = f"Package version does not match the Git tag ({error}). ABORTING."
-    raise SystemExit(0 if ver and tag and ver == tag else abort)
-    '
+  - tox -e ensure_version_matches -- ${GIT_TAG}
   - tox -e package -- upload
   only:
   - tags
