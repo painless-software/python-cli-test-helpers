@@ -62,7 +62,7 @@ pypi-local:
     TWINE_PASSWORD: ${CI_JOB_TOKEN}
     TWINE_REPOSITORY_URL: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi
   script:
-  - tox -e ensure_version_matches -- ${GIT_TAG}
+  - tox -qe ensure_version_matches -- ${GIT_TAG}
   - tox -e package -- upload
   only:
   - tags
