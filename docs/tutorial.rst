@@ -17,7 +17,7 @@ Then your directory layout looks somewhat like one of `our examples`_.
 
     .. code-block:: console
 
-        $ copier gh:painless-software/python-cli-test-helpers my-cli
+        $ copier copy gh:painless-software/python-cli-test-helpers my-cli
 
 .. _pytest: https://pytest.org/
 .. _our examples:
