@@ -15,7 +15,7 @@ one of the CLI libraries above, e.g.
 
 .. code-block:: console
 
-    copier gh:painless-software/python-cli-test-helpers cli-example
+    copier copy gh:painless-software/python-cli-test-helpers cli-example
 
 Add the ``--vcs-ref HEAD`` option to pick all changes from the repository that
 might have been added after the latest release. See the `Copier documentation`_
