@@ -22,6 +22,12 @@ stages:
 - build
 - publish
 
+format:
+  stage: codestyle
+  extends: .tox
+  variables:
+    TOXENV: format
+
 ruff:
   stage: codestyle
   extends: .tox
@@ -46,6 +52,7 @@ pytest:
       - '3.9'
       - '3.10'
       - '3.11'
+      - '3.12'
   coverage: /^TOTAL.+?(\d+\%)$/
   artifacts:
     reports:
