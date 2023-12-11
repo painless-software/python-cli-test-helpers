@@ -16,14 +16,14 @@ def test_main_module():
     """
     Exercise (most of) the code in the ``__main__`` module.
     """
-    import_module('{{module}}.__main__')
+    import_module("{{module}}.__main__")
 
 
 def test_runas_module():
     """
     Can this package be run as a Python module?
     """
-    result = shell('python -m {{module}} --help')
+    result = shell("python -m {{module}} --help")
     assert result.exit_code == 0
 
 
@@ -31,31 +31,31 @@ def test_entrypoint():
     """
     Is entrypoint script installed? (setup.py)
     """
-    result = shell('{{package}} --help')
+    result = shell("{{package}} --help")
     assert result.exit_code == 0
 
 
-@patch('{{module}}.cli.dispatch')
+@patch("{{module}}.cli.dispatch")
 def test_usage(mock_dispatch):
     """
     Does CLI abort w/o arguments, displaying usage instructions?
     """
-    with ArgvContext('{{package}}'), pytest.raises(SystemExit):
+    with ArgvContext("{{package}}"), pytest.raises(SystemExit):
         {{module}}.cli.main()
 
-    assert not mock_dispatch.called, 'CLI should stop execution'
+    assert not mock_dispatch.called, "CLI should stop execution"
 
-    result = shell('{{package}}')
+    result = shell("{{package}}")
 
-    assert 'usage:' in result.stderr
+    assert "usage:" in result.stderr
 
 
 def test_version():
     """
     Does --version display information as expected?
     """
-    expected_version = version('{{package}}')
-    result = shell('{{package}} --version')
+    expected_version = version("{{package}}")
+    result = shell("{{package}} --version")
 
     assert result.stdout == f"{expected_version}{linesep}"
     assert result.exit_code == 0
@@ -65,20 +65,20 @@ def test_get_action():
     """
     Is action argument available?
     """
-    with ArgvContext('{{package}}', 'get'):
+    with ArgvContext("{{package}}", "get"):
         args = {{module}}.cli.parse_arguments()
 
-    assert args.action == 'get'
+    assert args.action == "get"
 
 
 def test_set_action():
     """
     Is action argument available?
     """
-    with ArgvContext('{{package}}', 'set'):
+    with ArgvContext("{{package}}", "set"):
         args = {{module}}.cli.parse_arguments()
 
-    assert args.action == 'set'
+    assert args.action == "set"
 
 
 # NOTE:
