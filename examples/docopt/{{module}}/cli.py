@@ -25,12 +25,12 @@ from . import command
 
 def parse_arguments():
     """Parse and handle CLI arguments."""
-    args = docopt(__doc__, version=version('{{package}}'))
+    args = docopt(__doc__, version=version("{{package}}"))
 
     return {
-        "file": args['<file>'],
-        "silent": args['--silent'],
-        "verbose": args['--verbose'],
+        "file": args["<file>"],
+        "silent": args["--silent"],
+        "verbose": args["--verbose"],
     }
 
 

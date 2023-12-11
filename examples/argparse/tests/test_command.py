@@ -9,12 +9,12 @@ from cli_test_helpers import ArgvContext, EnvironContext
 import {{module}}
 
 
-@patch('{{module}}.command.example')
+@patch("{{module}}.command.example")
 def test_cli_command(mock_command):
     """
     Is the correct code called when invoked via the CLI?
     """
-    with ArgvContext('{{package}}', 'get'):
+    with ArgvContext("{{package}}", "get"):
         {{module}}.cli.main()
 
     assert mock_command.called
@@ -26,6 +26,6 @@ def test_fail_without_secret():
     """
     message_regex = "Environment value SECRET not set."
 
-    with ArgvContext('{{package}}', 'get'), EnvironContext(SECRET=None), \
+    with ArgvContext("{{package}}", "get"), EnvironContext(SECRET=None), \
             pytest.raises(SystemExit, match=message_regex):
         {{module}}.cli.main()
