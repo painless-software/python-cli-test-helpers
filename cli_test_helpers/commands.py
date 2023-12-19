@@ -1,5 +1,5 @@
 """
-Useful commands for writing tests for your CLI tool
+Useful commands for writing tests for your CLI tool.
 """
 
 from sys import version_info
@@ -21,10 +21,11 @@ __all__ = []
 
 def shell(command, **kwargs):
     """
-    A better version of ``os.system()`` that captures output and returns a
-    convenient namespace object.
+    Execute a shell command capturing output and exit code.
+
+    This is a better version of ``os.system()`` that captures output and
+    returns a convenient namespace object.
     """
-    # pylint: disable=subprocess-run-check
     if version_info < (3, 5):  # Python 2.7
         completed = Namespace(returncode=None, stdout=b"", stderr=b"")
         try:
@@ -34,9 +35,10 @@ def shell(command, **kwargs):
             completed.stdout = ex.output
             completed.returncode = ex.returncode
     elif version_info < (3, 7):
-        completed = run(command, shell=True, stdout=PIPE, stderr=PIPE, **kwargs)
+        completed = run(
+            command, shell=True, stdout=PIPE, stderr=PIPE, check=False, **kwargs)
     else:
-        completed = run(command, shell=True, capture_output=True, **kwargs)
+        completed = run(command, shell=True, capture_output=True, check=False, **kwargs)
 
     return Namespace(
         exit_code=completed.returncode,
