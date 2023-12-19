@@ -3,9 +3,9 @@ Useful helpers for writing tests for your Python CLI program.
 """
 
 __all__ = [
-    'ArgvContext',
-    'EnvironContext',
-    'shell',
+    "ArgvContext",
+    "EnvironContext",
+    "shell",
 ]
 
 from .commands import shell

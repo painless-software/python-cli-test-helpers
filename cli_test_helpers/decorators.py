@@ -1,5 +1,5 @@
 """
-Useful helpers for writing tests for your CLI tool
+Useful helpers for writing tests for your CLI tool.
 """
 
 import sys
@@ -14,7 +14,7 @@ __all__ = []
 
 class ArgvContext:
     """
-    A simple context manager allowing to temporarily override ``sys.argv``
+    A simple context manager allowing to temporarily override ``sys.argv``.
     """
 
     def __init__(self, *new_args):
@@ -48,7 +48,7 @@ class EnvironContext(patch.dict):
         for key in self.clear_variables:
             kwargs.pop(key)
 
-        super(EnvironContext, self).__init__('os.environ', **kwargs)
+        super(EnvironContext, self).__init__("os.environ", **kwargs)
 
     def __enter__(self):
 
