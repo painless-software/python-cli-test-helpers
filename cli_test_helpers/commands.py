@@ -36,7 +36,8 @@ def shell(command, **kwargs):
             completed.returncode = ex.returncode
     elif version_info < (3, 7):
         completed = run(
-            command, shell=True, stdout=PIPE, stderr=PIPE, check=False, **kwargs)
+            command, shell=True, stdout=PIPE, stderr=PIPE, check=False, **kwargs
+        )
     else:
         completed = run(command, shell=True, capture_output=True, check=False, **kwargs)
 
