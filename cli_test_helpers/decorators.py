@@ -40,10 +40,7 @@ class EnvironContext(patch.dict):
     """
 
     def __init__(self, **kwargs):
-
-        self.clear_variables = [
-            key for key, val in kwargs.items() if val is None
-        ]
+        self.clear_variables = [key for key, val in kwargs.items() if val is None]
 
         for key in self.clear_variables:
             kwargs.pop(key)
@@ -51,7 +48,6 @@ class EnvironContext(patch.dict):
         super(EnvironContext, self).__init__("os.environ", **kwargs)
 
     def __enter__(self):
-
         super(EnvironContext, self).__enter__()
 
         for key in self.clear_variables:
