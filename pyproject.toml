@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cli-test-helpers"
-version = "3.5.0"
+version = "4.0.0"
 description = "Useful helpers for writing tests for your Python CLI program."
 readme = "README.rst"
 license = {file = "LICENSE"}
