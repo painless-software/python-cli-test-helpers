@@ -3,15 +3,9 @@ Useful commands for writing tests for your CLI tool.
 """
 
 from sys import version_info
+from types import SimpleNamespace as Namespace
 
-try:
-    from types import SimpleNamespace as Namespace
-except ImportError:  # Python < 3.3
-    from argparse import Namespace
-
-if version_info < (3, 5):  # Python 2.7
-    from subprocess import PIPE, CalledProcessError, check_output
-elif version_info < (3, 7):
+if version_info < (3, 7):
     from subprocess import PIPE, run
 else:
     from subprocess import run
@@ -26,15 +20,7 @@ def shell(command, **kwargs):
     This is a better version of ``os.system()`` that captures output and
     returns a convenient namespace object.
     """
-    if version_info < (3, 5):  # Python 2.7
-        completed = Namespace(returncode=None, stdout=b"", stderr=b"")
-        try:
-            completed.stdout = check_output(command, shell=True, stderr=PIPE, **kwargs)
-            completed.returncode = 0
-        except CalledProcessError as ex:
-            completed.stdout = ex.output
-            completed.returncode = ex.returncode
-    elif version_info < (3, 7):
+    if version_info < (3, 7):
         completed = run(
             command, shell=True, stdout=PIPE, stderr=PIPE, check=False, **kwargs
         )

@@ -65,11 +65,7 @@ extend-ignore = [
     "D205",
     "D212",
     "Q000",
-    "PERF203",  # Python < 3.4 (`contextlib.suppress`)
-    "SIM105",  # Python 2.7 only
-    "UP008",  # Python 2.7 only (`super()` call)
-    "UP022",  # Python 2.7 only (`stderr=PIPE`)
-    "UP026",  # Python 2.7 only (`mock` module)
+    "UP022",  # Python < 3.7 only (`stderr=PIPE`)
     "UP036",  # Python < 3.7 only
 ]
 
