@@ -20,6 +20,7 @@ classifiers = [
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
@@ -38,6 +39,7 @@ keywords = [
   "testing",
   "helpers",
 ]
+requires-python = ">=3.7"
 
 [project.urls]
 homepage = "https://github.com/painless-software/python-cli-test-helpers"
@@ -65,12 +67,10 @@ extend-ignore = [
     "D205",
     "D212",
     "Q000",
-    "UP022",  # Python < 3.7 only (`stderr=PIPE`)
-    "UP036",  # Python < 3.7 only
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"cli_test_helpers/commands.py" = ["COM812", "S602"]
+"cli_test_helpers/commands.py" = ["S602"]
 "tests/*.py" = ["D400", "INP001", "S101"]
 
 [tool.setuptools.packages.find]
