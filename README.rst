@@ -62,12 +62,7 @@ this:
 
 .. code-block:: shell
 
-    python3 -m pip install tox 'virtualenv<20.22'
-
-.. note::
-
-   Virtualenv 20.22 dropped support for Python 2.7 and <3.6, which most
-   notably makes Tox fail to detect the PyPy2 executable.
+    python3 -m pip install tox
 
 .. code-block:: shell
 
