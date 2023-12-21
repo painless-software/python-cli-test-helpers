@@ -2,12 +2,9 @@
 Useful helpers for writing tests for your CLI tool.
 """
 
+import contextlib
 import sys
-
-try:
-    from unittest.mock import patch
-except ImportError:  # Python 2.7
-    from mock import patch
+from unittest.mock import patch
 
 __all__ = []
 
@@ -45,13 +42,11 @@ class EnvironContext(patch.dict):
         for key in self.clear_variables:
             kwargs.pop(key)
 
-        super(EnvironContext, self).__init__("os.environ", **kwargs)
+        super().__init__("os.environ", **kwargs)
 
     def __enter__(self):
-        super(EnvironContext, self).__enter__()
+        super().__enter__()
 
         for key in self.clear_variables:
-            try:
+            with contextlib.suppress(KeyError):
                 self.in_dict.pop(key)
-            except KeyError:
-                pass
