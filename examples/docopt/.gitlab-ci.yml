@@ -28,11 +28,11 @@ format:
   variables:
     TOXENV: format
 
-ruff:
+lint:
   stage: codestyle
   extends: .tox
   variables:
-    TOXENV: ruff
+    TOXENV: lint
 
 requirements:
   stage: safety
@@ -48,7 +48,6 @@ pytest:
   parallel:
     matrix:
     - PYTHON_VERSION:
-      - '3.8'
       - '3.9'
       - '3.10'
       - '3.11'
