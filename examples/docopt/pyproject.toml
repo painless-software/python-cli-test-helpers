@@ -20,7 +20,6 @@ classifiers = [
   "Intended Audience :: Information Technology",
   "License :: Other/Proprietary License",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -30,7 +29,7 @@ classifiers = [
 keywords = [
   "cli",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
   "docopt-ng",
 ]
@@ -59,7 +58,7 @@ extend-ignore = ["ANN", "B904", "D", "INP001", "T201", "TRY200"]
 extend-select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ["S101"]
+"test_*.py" = ["S101"]
 
 [tool.setuptools.packages.find]
 where = ["."]

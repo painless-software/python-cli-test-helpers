@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         env:
-        - ruff
+        - lint
         - format
         - example-argparse
         - example-click
