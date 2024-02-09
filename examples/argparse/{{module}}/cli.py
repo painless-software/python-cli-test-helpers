@@ -15,8 +15,12 @@ def parse_arguments():
 
     parser.add_argument("--version", action="version", version=__version__)
     parser.add_argument("action", choices=["get", "set"])
-    parser.add_argument("envvar", nargs="?", default="SECRET",
-                        help="default: %(default)s")
+    parser.add_argument(
+        "envvar",
+        nargs="?",
+        default="SECRET",
+        help="default: %(default)s",
+    )
 
     return parser.parse_args()
 

@@ -8,7 +8,6 @@ def dispatch(file, silent, verbose):
     """An example implementation"""
     try:
         with Path(file).open() as textfile:
-
             if verbose:
                 print("Opening text file for reading...")
 

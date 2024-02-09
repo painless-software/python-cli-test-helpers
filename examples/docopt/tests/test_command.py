@@ -35,5 +35,6 @@ def test_dispatch_business_logic(mock_openfile, mock_print):
     {{module}}.command.dispatch(file="myfile", silent=False, verbose=True)
 
     assert mock_openfile.called
-    assert mock_print.call_count == expected_print_calls, \
-        "Expected 2x for --verbose, 1x for not --silent"
+    assert (
+        mock_print.call_count == expected_print_calls
+    ), "Expected 2x for --verbose, 1x for not --silent"
