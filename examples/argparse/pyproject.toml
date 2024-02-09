@@ -43,7 +43,9 @@ homepage = "{{url}}"
 source = ["{{module}}"]
 
 [tool.coverage.report]
+exclude_lines = ["if __name__ == .__main__.:"]
 show_missing = true
+skip_covered = true
 
 [tool.pytest.ini_options]
 addopts = "--color=yes --doctest-modules --junitxml=junit-report.xml --verbose"
