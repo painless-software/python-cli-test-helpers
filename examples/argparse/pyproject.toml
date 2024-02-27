@@ -43,7 +43,7 @@ homepage = "{{url}}"
 source = ["{{module}}"]
 
 [tool.coverage.report]
-exclude_lines = ["if __name__ == .__main__.:"]
+exclude_only = ["if __name__ == .__main__.:"]
 show_missing = true
 skip_covered = true
 
