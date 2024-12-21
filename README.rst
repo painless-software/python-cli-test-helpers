@@ -5,14 +5,15 @@ cli-test-helpers |latest-version|
 
 Useful helpers for writing tests for your Python CLI program.
 
-Writing tests for a command line interface (CLI) tool `may not seem strictly
-straight-forward`_ when you think in terms of unit tests. Especially, when you
-use the `argparse`_ module or the `click`_ package, control of the application
-entry point is a bit taken away from you.
+Writing tests for a command line interface (CLI) application is `more difficult
+than it seems at first sight`_. Especially, when you use the `argparse`_ module
+or the `docopt`_ or `click`_ package, control of the application entry point is
+a bit taken away from you.
 
-But it's not all that bad. This package is here to help. The `examples`_ give
-you some guidance on how to get started, and the helpers allow you to deal with
-common cases, such as mocking CLI arguments and environment variable values.
+But it's not all that bad. This package is here to help. The Painless Software
+`CLI Copier template`_ offers some guidance on how to get started, and the
+CLI test helpers allow you to deal with common cases, such as mocking CLI
+arguments and environment variable values.
 
 .. |latest-version| image:: https://img.shields.io/pypi/v/cli-test-helpers.svg
    :target: https://pypi.org/project/cli-test-helpers
@@ -35,11 +36,12 @@ common cases, such as mocking CLI arguments and environment variable values.
 .. |docs-status| image:: https://img.shields.io/readthedocs/python-cli-test-helpers/latest.svg
    :target: https://readthedocs.org/projects/python-cli-test-helpers/
    :alt: Documentation Status
-.. _may not seem strictly straight-forward: https://stackoverflow.com/questions/13493288/
+.. _more difficult than it seems at first sight: https://stackoverflow.com/questions/13493288/
 .. _argparse: https://docs.python.org/3/library/argparse.html
 .. _click: https://click.palletsprojects.com/
+.. _docopt: http://docopt.org/
 .. _documentation: https://python-cli-test-helpers.readthedocs.io/
-.. _examples: https://github.com/painless-software/python-cli-test-helpers/tree/main/examples
+.. _CLI Copier template: https://gitlab.com/painless-software/cicd/app/cli
 
 .. links-marker
 
@@ -48,11 +50,13 @@ Documentation
 
 See the `documentation`_ for installation instructions and a tutorial.
 
-Examples
---------
+Examples / Quickstart
+---------------------
 
-The `examples`_ folder contains hands-on example projects you can start to use
-directly.
+Visit the Painless Software `CLI Copier template`_ to inspect hands-on CLI
+application blueprints for the most popular CLI frameworks. The Copier tool
+lets you create your own CLI application project with tests and modern CI/CD,
+effortlessly.
 
 Development
 -----------
@@ -70,10 +74,3 @@ this:
     tox -e lint,py312   # run a few environments
     tox -e py           # run tests with local default Python
     tox                 # run entire suite
-
-The included example projects can be tested independently with their dedicated
-environments, e.g.
-
-.. code-block:: shell
-
-    tox -e example-docopt
