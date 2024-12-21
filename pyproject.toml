@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64", "setuptools_scm>=8"]
 
 [project]
 name = "cli-test-helpers"
@@ -44,7 +44,6 @@ requires-python = ">=3.7"
 [project.urls]
 homepage = "https://github.com/painless-software/python-cli-test-helpers"
 Documentation = "https://python-cli-test-helpers.readthedocs.io/"
-Examples = "https://github.com/painless-software/python-cli-test-helpers/tree/main/examples"
 
 [tool.coverage.run]
 source = ["cli_test_helpers"]
@@ -53,10 +52,10 @@ source = ["cli_test_helpers"]
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--color=yes --doctest-modules --ignore examples/ --junitxml=tests/junit-report.xml --verbose"
+addopts = "--color=yes --doctest-modules --junitxml=tests/junit-report.xml --verbose"
 
 [tool.ruff]
-extend-exclude = ["docs/conf.py", "examples"]
+extend-exclude = ["docs/conf.py"]
 extend-include = []
 
 [tool.ruff.lint]
@@ -75,4 +74,7 @@ extend-ignore = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = ["tests", "examples"]
+exclude = ["tests"]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"

@@ -1,3 +1,0 @@
-# Changes here will be overwritten by Copier
-# Feel free to delete this file if you don't plan to run `copier update`.
-{{ _copier_answers|to_nice_yaml -}}
