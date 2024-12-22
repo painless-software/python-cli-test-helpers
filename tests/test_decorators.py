@@ -1,6 +1,5 @@
-"""
-Tests for our tests helpers.  8-}.
-"""
+"""Tests for our tests helpers.  8-}."""
+
 import os
 import sys
 

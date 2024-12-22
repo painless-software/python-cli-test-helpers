@@ -1,6 +1,5 @@
-"""
-Tests for our cli test commands.
-"""
+"""Tests for our cli test commands."""
+
 from os import linesep
 
 from cli_test_helpers import shell
