@@ -1,27 +1,28 @@
 Tutorial
 ========
 
-Let's assume you use `pytest`_ for running your tests, which is certainly a
-good idea. Your CLI program is called ``foobar``.
+Let's assume you use `pytest`_ for running your tests, which is certainly
+a good idea. Your CLI program is called ``foobar``.
 
-You have prepared a ``setup.py`` with a CLI entrypoint. For the tests you have
-prepared a ``tests/`` folder (outside of ``foobar/``, because you don't want
-your tests to be packaged up with your application code).
+You have prepared a ``pyproject.toml`` file with a CLI entrypoint. For
+the tests you have prepared a ``tests/`` folder (outside of ``foobar/``,
+because you don't want your tests to be packaged up with your application
+code).
 
-Then your directory layout looks somewhat like one of `our examples`_.
+Then your directory layout looks somewhat like one of `our CLI examples`_.
 
 .. note::
 
-    You can easily generate a CLI project of your own from one of the
-    examples of Python CLI test helpers using `Copier`_, e.g.
+    You can easily generate a CLI project of your own from one of our
+    CLI examples using `Copier`_, e.g.
 
     .. code-block:: console
 
-        $ copier copy gh:painless-software/python-cli-test-helpers my-cli
+        $ copier copy gl:painless-software/cicd/app/cli my-cli
 
 .. _pytest: https://pytest.org/
-.. _our examples:
-    https://github.com/painless-software/python-cli-test-helpers/tree/main/examples
+.. _our CLI examples:
+    https://gitlab.com/painless-software/cicd/app/cli/-/tree/main/frameworks
 .. _Copier: https://copier.readthedocs.io/
 
 Functional tests
@@ -29,8 +30,10 @@ Functional tests
 
 Start with a simple set of functional tests:
 
-- Is the entrypoint script installed? (tests the configuration in your setup.py)
-- Can this package be run as a Python module? (i.e. without having to be installed)
+- Is the entrypoint script installed? (tests the configuration in your
+  ``pyproject.toml`` file)
+- Can this package be run as a Python module? (i.e. without having to be
+  installed)
 - Is command XYZ available? etc. Cover your entire CLI usage here!
 
 This is almost a stupid exercise: Run the command as a shell command
@@ -46,7 +49,7 @@ and inspect the exit code of the exiting process, e.g.
 .. code-block:: python
 
     def test_entrypoint():
-        """Is entrypoint script installed? (setup.py)"""
+        """Is entrypoint script installed? (pyproject.toml)"""
         result = shell('foobar --help')
         assert result.exit_code == 0
 
@@ -115,8 +118,8 @@ See more |example code (click-command)|_.
 .. |example code (click-command)| replace:: example code
 
 .. _example code (argparse-cli):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/argparse/tests/test_cli.py
+    https://gitlab.com/painless-software/cicd/app/cli/-/blob/main/frameworks/argparse/tests/test_cli.py
 .. _example code (click-cli):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/click/tests/test_cli.py
+    https://gitlab.com/painless-software/cicd/app/cli/-/blob/main/frameworks/click/tests/test_cli.py
 .. _example code (click-command):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/click/tests/test_command.py
+    https://gitlab.com/painless-software/cicd/app/cli/-/blob/main/frameworks/click/tests/test_command.py
