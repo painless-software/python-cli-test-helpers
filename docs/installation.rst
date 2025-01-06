@@ -18,7 +18,7 @@ environment (see |example (tox.ini)|_), e.g.
     # FILE: tox.ini
 
     [tox]
-    envlist = py3{8,9,10,11}
+    envlist = py3{9,10,11,12}
 
     [testenv]
     deps = cli-test-helpers,pytest
@@ -35,4 +35,4 @@ testing, yourself:
 .. _Tox: https://tox.wiki/
 .. |example (tox.ini)| replace:: example
 .. _example (tox.ini):
-    https://github.com/painless-software/python-cli-test-helpers/blob/main/examples/click/tox.ini#L7-L17
+    https://gitlab.com/painless-software/cicd/app/cli/-/blob/main/frameworks/click/tox.ini#L9-18
