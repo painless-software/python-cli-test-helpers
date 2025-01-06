@@ -11,6 +11,7 @@ Contents
    tutorial
    other
    techniques
+   contributing
 
 Quotes
 ------

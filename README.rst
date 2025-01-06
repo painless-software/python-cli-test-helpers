@@ -42,6 +42,7 @@ arguments and environment variable values.
 .. _docopt: http://docopt.org/
 .. _documentation: https://python-cli-test-helpers.readthedocs.io/
 .. _CLI Copier template: https://gitlab.com/painless-software/cicd/app/cli
+.. _CONTRIBUTING: https://github.com/painless-software/python-cli-test-helpers/blob/main/CONTRIBUTING.rst
 
 .. links-marker
 
@@ -61,16 +62,4 @@ effortlessly.
 Development
 -----------
 
-This project uses Tox to run its test suite. Install and use it locally like
-this:
-
-.. code-block:: shell
-
-    python3 -m pip install tox
-
-.. code-block:: shell
-
-    tox list            # list available environments
-    tox -e lint,py312   # run a few environments
-    tox -e py           # run tests with local default Python
-    tox                 # run entire suite
+See `CONTRIBUTING`_.
