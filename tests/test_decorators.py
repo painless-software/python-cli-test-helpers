@@ -16,9 +16,9 @@ def test_argv_context():
     assert sys.argv == old
 
     with ArgvContext(*new):
-        assert (
-            sys.argv == new
-        ), "sys.argv wasn't correctly changed by the contextmanager"
+        assert sys.argv == new, (
+            "sys.argv wasn't correctly changed by the contextmanager"
+        )
 
     assert sys.argv == old, "sys.argv wasn't correctly reset"
 
@@ -35,12 +35,12 @@ def test_environ_context():
     assert os.getenv("FOO") is None, "Invalid test setup"
 
     with EnvironContext(PATH=None, FOO="my foo value"):
-        assert (
-            os.getenv("PATH") is None
-        ), "os.environ[PATH] wasn't removed by the contextmanager"
-        assert (
-            os.getenv("FOO") == "my foo value"
-        ), "os.environ[FOO] wasn't set by the contextmanager"
+        assert os.getenv("PATH") is None, (
+            "os.environ[PATH] wasn't removed by the contextmanager"
+        )
+        assert os.getenv("FOO") == "my foo value", (
+            "os.environ[FOO] wasn't set by the contextmanager"
+        )
 
     assert os.environ == old_environ, "object os.environ was not restored"
     assert os.getenv("PATH") == old_path, "env var PATH was not restored"
