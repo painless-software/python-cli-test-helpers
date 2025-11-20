@@ -1,7 +1,7 @@
 cli-test-helpers |latest-version|
 =================================
 
-|check-status| |test-status| |publish-status| |python-support| |license| |docs-status|
+|check-status| |test-status| |publish-status| |download-stats| |python-support| |license| |docs-status|
 
 Useful helpers for writing tests for your Python CLI program.
 
@@ -18,6 +18,9 @@ arguments and environment variable values.
 .. |latest-version| image:: https://img.shields.io/pypi/v/cli-test-helpers.svg
    :target: https://pypi.org/project/cli-test-helpers
    :alt: Latest version on PyPI
+.. |download-stats| image:: https://img.shields.io/pypi/dm/cli-test-helpers.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypistats.org/packages/cli-test-helpers
 .. |check-status| image:: https://github.com/painless-software/python-cli-test-helpers/actions/workflows/check.yml/badge.svg
    :target: https://github.com/painless-software/python-cli-test-helpers/actions/workflows/check.yml
    :alt: Code checks status
