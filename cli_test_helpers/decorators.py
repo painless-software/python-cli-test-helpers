@@ -3,7 +3,9 @@ Useful helpers for writing tests for your CLI tool.
 """
 
 import contextlib
+import os
 import sys
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 __all__ = []
@@ -50,3 +52,21 @@ class EnvironContext(patch.dict):
         for key in self.clear_variables:
             with contextlib.suppress(KeyError):
                 self.in_dict.pop(key)
+
+
+class RandomDirectoryContext(TemporaryDirectory):
+    """
+    Change the execution directory to a random location, temporarily.
+    """
+
+    def __enter__(self):
+        """Create a temporary directory and ``cd`` into it."""
+        self.__prev_dir = os.getcwd()
+        super().__enter__()
+        os.chdir(self.name)
+        return self.name
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        """Return to the original directory before execution."""
+        os.chdir(self.__prev_dir)
+        return super().__exit__(exc_type, exc_value, traceback)
