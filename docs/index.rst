@@ -9,6 +9,7 @@ Contents
 
    installation
    tutorial
+   api
    other
    techniques
    contributing
