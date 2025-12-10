@@ -3,7 +3,7 @@
 import os
 import sys
 
-from cli_test_helpers import ArgvContext, EnvironContext
+from cli_test_helpers import ArgvContext, EnvironContext, RandomDirectoryContext
 
 
 def test_argv_context():
@@ -45,3 +45,20 @@ def test_environ_context():
     assert os.environ == old_environ, "object os.environ was not restored"
     assert os.getenv("PATH") == old_path, "env var PATH was not restored"
     assert os.getenv("FOO") is None, "env var FOO was not cleared"
+
+
+def test_random_directory_context():
+    """
+    In a directory context, are we effectively in a different location?
+    """
+    before_dir = os.getcwd()
+
+    with RandomDirectoryContext() as random_dir:
+        new_dir = os.getcwd()
+
+        assert new_dir == random_dir, "Does't behave like TemporaryDirectory"
+        assert new_dir != before_dir, "Context not in a different file system location"
+
+    after_dir = os.getcwd()
+
+    assert after_dir == before_dir, "Execution directory not restored to original"
