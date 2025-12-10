@@ -36,8 +36,8 @@ Start with a simple set of functional tests:
   installed)
 - Is command XYZ available? etc. Cover your entire CLI usage here!
 
-This is almost a stupid exercise: Run the command as a shell command
-and inspect the exit code of the exiting process, e.g.
+This is almost a stupid exercise: Run the command as a :func:`~cli_test_helpers.shell`
+command and inspect the exit code of the exiting process, e.g.
 
 .. code-block:: python
 
@@ -67,7 +67,8 @@ Then you're ready to take advantage of our helpers.
 ``ArgvContext``
 +++++++++++++++
 
-``ArgvContext`` allows you to mimic the use of specific CLI arguments:
+:class:`~cli_test_helpers.ArgvContext` allows you to mimic the use of
+specific CLI arguments:
 
 .. code-block:: python
 
@@ -96,8 +97,8 @@ See more |example code (argparse-cli)|_.
 ``EnvironContext``
 ++++++++++++++++++
 
-``EnvironContext`` allows you to mimic the presence (or absence) of
-environment variables:
+:class:`~cli_test_helpers.EnvironContext` allows you to mimic the presence
+(or absence) of environment variables:
 
 .. code-block:: python
 
@@ -111,6 +112,20 @@ environment variables:
                 pytest.fail("CLI doesn't abort with missing SECRET")
 
 See more |example code (click-command)|_.
+
+``RandomDirectoryContext``
+++++++++++++++++++++++++++
+
+:class:`~cli_test_helpers.RandomDirectoryContext` allows you to verify that
+your CLI program logic is independent of where it is executed in the file
+system:
+
+.. code-block:: python
+
+    def test_load_configfile():
+        """Must not fail when executed anywhere in the filesystem."""
+        with ArgvContext('foobar', 'load'), RandomDirectoryContext():
+            foobar.cli.main()
 
 
 .. |example code (argparse-cli)| replace:: example code
