@@ -14,6 +14,10 @@ __all__ = []
 class ArgvContext:
     """
     A simple context manager allowing to temporarily override ``sys.argv``.
+
+    Use it to mimic the command line arguments of the CLI application.
+    Note that the first argument (index ``0``) is always the script or
+    application name.
     """
 
     def __init__(self, *new_args):
@@ -57,6 +61,12 @@ class EnvironContext(patch.dict):
 class RandomDirectoryContext(TemporaryDirectory):
     """
     Change the execution directory to a random location, temporarily.
+
+    Keyword arguments are optional and identical to the ones of
+    `tempfile.TemporaryDirectory`_ of the Python standard library.
+
+    .. _tempfile.TemporaryDirectory:
+        https://docs.python.org/3/library/tempfile.html#tempfile.TemporaryDirectory
     """
 
     def __enter__(self):
