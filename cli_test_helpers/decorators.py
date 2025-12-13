@@ -15,7 +15,7 @@ class ArgvContext:
     """
     A simple context manager allowing to temporarily override ``sys.argv``.
 
-    Use it to mimick the command line arguments of the CLI application.
+    Use it to mimic the command line arguments of the CLI application.
     Note that the first argument (index ``0``) is always the script or
     application name.
     """
@@ -62,7 +62,7 @@ class RandomDirectoryContext(TemporaryDirectory):
     """
     Change the execution directory to a random location, temporarily.
 
-    Keyword arguments are optional and identical the ones of
+    Keyword arguments are optional and identical to the ones of
     `tempfile.TemporaryDirectory`_ of the Python standard library.
 
     .. _tempfile.TemporaryDirectory:
@@ -74,7 +74,7 @@ class RandomDirectoryContext(TemporaryDirectory):
         self.__prev_dir = os.getcwd()
         super().__enter__()
         os.chdir(self.name)
-        return self.name
+        return os.getcwd()
 
     def __exit__(self, exc_type, exc_value, traceback):
         """Return to the original directory before execution."""
