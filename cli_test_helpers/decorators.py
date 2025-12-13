@@ -74,7 +74,7 @@ class RandomDirectoryContext(TemporaryDirectory):
         self.__prev_dir = os.getcwd()
         super().__enter__()
         os.chdir(self.name)
-        return self.name
+        return os.getcwd()
 
     def __exit__(self, exc_type, exc_value, traceback):
         """Return to the original directory before execution."""

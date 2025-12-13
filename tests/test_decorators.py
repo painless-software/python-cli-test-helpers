@@ -56,7 +56,7 @@ def test_random_directory_context():
     with RandomDirectoryContext() as random_dir:
         new_dir = os.getcwd()
 
-        assert new_dir == random_dir, "Does't behave like TemporaryDirectory"
+        assert new_dir == random_dir, "Doesn't behave like TemporaryDirectory"
         assert new_dir != before_dir, "Context not in a different file system location"
 
     after_dir = os.getcwd()
