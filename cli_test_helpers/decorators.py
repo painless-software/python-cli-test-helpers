@@ -72,6 +72,8 @@ class RandomDirectoryContext(LoggingIsolationMixin, TemporaryDirectory):
     """
     Change the execution directory to a random location, temporarily.
 
+    Use it to verify that your CLI application can operate from any
+    location, and is independent from your development directory tree.
     Keyword arguments are optional and identical to the ones of
     `tempfile.TemporaryDirectory`_ of the Python standard library.
 

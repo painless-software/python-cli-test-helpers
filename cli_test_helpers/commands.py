@@ -13,7 +13,14 @@ def shell(command, **kwargs):
     Execute a shell command capturing output and exit code.
 
     This is a better version of ``os.system()`` that captures output and
-    returns a convenient namespace object.
+    returns a convenient namespace object with 3 values:
+
+    ``exit_code``:
+        The command's exit code
+    ``stdout``:
+        The command's normal output
+    ``stderr``:
+        The command's error output
     """
     completed = run(command, shell=True, capture_output=True, check=False, **kwargs)
 
