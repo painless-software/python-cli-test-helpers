@@ -8,10 +8,12 @@ import sys
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
+from .mixins import LoggingIsolationMixin
+
 __all__ = []
 
 
-class ArgvContext:
+class ArgvContext(LoggingIsolationMixin):
     """
     A simple context manager allowing to temporarily override ``sys.argv``.
 
@@ -25,13 +27,16 @@ class ArgvContext:
         self.args = type(self._old)(new_args)
 
     def __enter__(self):
+        super().__enter__()
         sys.argv = self.args
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         sys.argv = self._old
+        super().__exit__(exc_type, exc_val, exc_tb)
 
 
-class EnvironContext(patch.dict):
+class EnvironContext(LoggingIsolationMixin, patch.dict):
     """
     A simple context manager allowing to temporarily set environment values.
 
@@ -57,8 +62,13 @@ class EnvironContext(patch.dict):
             with contextlib.suppress(KeyError):
                 self.in_dict.pop(key)
 
+        return self
 
-class RandomDirectoryContext(TemporaryDirectory):
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return super().__exit__(exc_type, exc_val, exc_tb)
+
+
+class RandomDirectoryContext(LoggingIsolationMixin, TemporaryDirectory):
     """
     Change the execution directory to a random location, temporarily.
 
@@ -69,10 +79,14 @@ class RandomDirectoryContext(TemporaryDirectory):
         https://docs.python.org/3/library/tempfile.html#tempfile.TemporaryDirectory
     """
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     def __enter__(self):
         """Create a temporary directory and ``cd`` into it."""
-        self.__prev_dir = os.getcwd()
         super().__enter__()
+
+        self.__prev_dir = os.getcwd()
         os.chdir(self.name)
         return os.getcwd()
 

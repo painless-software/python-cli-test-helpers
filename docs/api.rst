@@ -9,11 +9,20 @@ by the CLI test helpers package.
 Context Managers
 ----------------
 
-.. autoclass:: ArgvContext
+.. autoclass:: cli_test_helpers.ArgvContext
 
-.. autoclass:: EnvironContext
+.. autoclass:: cli_test_helpers.EnvironContext
 
-.. autoclass:: RandomDirectoryContext
+.. autoclass:: cli_test_helpers.RandomDirectoryContext
+
+Mixins
+------
+
+.. note::
+
+    Used internally by all context managers, not meant for direct use.
+
+.. autoclass:: cli_test_helpers.mixins.LoggingIsolationMixin
 
 Utilities
 ---------
