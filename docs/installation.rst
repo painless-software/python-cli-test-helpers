@@ -1,11 +1,15 @@
 Installation
 ============
 
-You can install CLI test helpers from PyPI using Pip:
+You can install CLI test helpers from PyPI using Pip or uv:
 
 .. code-block:: console
 
     pip install cli-test-helpers
+
+.. code-block:: console
+
+    uv add --dev cli-test-helpers
 
 Tox
 ---
