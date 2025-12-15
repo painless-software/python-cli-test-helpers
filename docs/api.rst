@@ -6,6 +6,11 @@ by the CLI test helpers package.
 
 .. module:: cli_test_helpers
 
+Utilities
+---------
+
+.. autofunction:: cli_test_helpers.shell
+
 Context Managers
 ----------------
 
@@ -23,8 +28,3 @@ Mixins
     Used internally by all context managers, not meant for direct use.
 
 .. autoclass:: cli_test_helpers.mixins.LoggingIsolationMixin
-
-Utilities
----------
-
-.. autofunction:: shell
